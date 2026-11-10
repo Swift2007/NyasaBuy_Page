@@ -1,0 +1,193 @@
+---
+// Featured grid: six product cards — soft gradient thumbs stand in for real imagery.
+const products = [
+  {
+    name: "Tecno Pop 8",
+    price: "MWK 185,000",
+    seller: "by Kachere Mobiles",
+    bg: "linear-gradient(165deg, #EBF2FC 10%, #D3E1F8 100%)",
+    free: true,
+  },
+  {
+    name: "Ankara maxi dress",
+    price: "MWK 14,500",
+    seller: "by Luz Boutique",
+    bg: "linear-gradient(150deg, #EDF3FC 10%, #DDE9FA 100%)",
+  },
+  {
+    name: "Rice 10kg",
+    price: "MWK 14,000",
+    seller: "by O JC Maize & More",
+    bg: "linear-gradient(160deg, #E6EEFB 10%, #D7E5FB 100%)",
+    free: true,
+  },
+  {
+    name: "Bluetooth speaker",
+    price: "MWK 21,000",
+    seller: "by Sound Hub",
+    bg: "linear-gradient(155deg, #EAF1FB 10%, #D9E5F8 100%)",
+  },
+  {
+    name: "Kitchen jar set",
+    price: "MWK 9,800",
+    seller: "by Chipapa Corner",
+    bg: "linear-gradient(170deg, #F0F5FC 10%, #DDE7F9 100%)",
+  },
+  {
+    name: "School bag",
+    price: "MWK 7,200",
+    seller: "by Learning Tree",
+    bg: "linear-gradient(160deg, #E3EDFB 10%, #D4E2F8 100%)",
+  },
+];
+---
+
+<section class="featured" aria-labelledby="featured-heading">
+  <div class="featured-head">
+    <h2 id="featured-heading">Featured products</h2>
+    <a class="view-all" href="#">View all
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h10" /><path d="m9.5 5 3 3-3 3" /></svg>
+    </a>
+  </div>
+
+  <ul class="product-grid">
+    {products.map((p) => (
+      <li>
+        <article class="product-card">
+          <div class="thumb" style={p.bg} aria-hidden="true"></div>
+          <div class="product-info">
+            <div class="product-name-row">
+              <h3 class="product-name">{p.name}</h3>
+              {p.free && <span class="chip-free">Free delivery</span>}
+            </div>
+            <p class="price">{p.price}</p>
+            <p class="seller">{p.seller}</p>
+          </div>
+        </article>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .featured {
+    padding: clamp(2.25rem, 6vw, 4rem) 0;
+  }
+
+  /* Title left, "View all" right; stacks as a column on small screens. */
+  .featured-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+  }
+
+  .featured-head h2 {
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .view-all:hover {
+    color: var(--navy-hover);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  }
+
+  /* Quiet hairline border matches the mock-search tiles; no hover since cards aren't links. */
+  .product-card {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.625rem;
+    border: 1px solid #EEF1F6;
+    border-radius: var(--r-card);
+    background: var(--white);
+  }
+
+  .thumb {
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+  }
+
+  .product-info {
+    display: grid;
+    align-content: start;
+    gap: 0.375rem;
+    padding: 0.125rem 0.375rem 0.375rem;
+  }
+
+  .product-name-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .product-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Same pill treatment as .mock-chip in the Showcase: chip bg on accent-deep text. */
+  .chip-free {
+    margin-left: auto;
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    background: var(--chip);
+    color: var(--accent-deep);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .price {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .seller {
+    font-size: 0.8125rem;
+    color: var(--body);
+  }
+
+  /* 3-up desktop → 2-up tablet → 1-up on the smallest phones, same as the category grid. */
+  @media (max-width: 899px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 409px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 519px) {
+    .featured-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+// Category shelf: eight chip-blue tiles linking to future category pages.
+// Icon geometry matches the Showcase icon family: 24px viewBox, stroke 1.7, round caps/joins.
+const categories = [
+  {
+    name: "Phones & electronics",
+    icon: '<rect x="8" y="3.5" width="8" height="17" rx="1.8" /><path d="M11 17.5h2" />',
+  },
+  {
+    name: "Fashion",
+    icon: '<path d="M14.2 7.1a2.2 2.2 0 1 0-2.2 3.2v1.5" /><path d="m12 11.8-7.8 5.2c-.84.56-.45 1.9.55 1.9h14.5c1 0 1.39-1.34.55-1.9z" />',
+  },
+  {
+    name: "Groceries & food",
+    icon: '<path d="M12 7.9c0-1.6.8-2.8 2.2-3.4" /><path d="M12 7.6c-1.4-.7-3.2-.8-4.5.1-2.6 1.8-2.7 5.3-1 8.3 1.2 2.1 2.9 3.6 4.7 3 .3-.1.5-.2.8-.2.3 0 .5.1.8.2 1.8.6 3.5-.9 4.7-3 1.7-3 1.6-6.5-1-8.3-1.3-.9-3.1-.8-4.5-.1z" />',
+  },
+  {
+    name: "Home & kitchen",
+    icon: '<path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" /><path d="M2 11a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" /><path d="M4 18v2" /><path d="M20 18v2" />',
+  },
+  {
+    name: "Health & beauty",
+    icon: '<rect x="3" y="7.5" width="18" height="13" rx="2" /><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5" /><path d="M12 11.5v5" /><path d="M9.5 14h5" />',
+  },
+  {
+    name: "Baby & toys",
+    icon: '<circle cx="12" cy="6.8" r="3.3" /><path d="M12 10.1v7.4" /><circle cx="12" cy="19" r="1.9" />',
+  },
+  {
+    name: "Sports & outdoors",
+    icon: '<circle cx="12" cy="12" r="8" /><path d="M12 4v16" /><path d="M4.7 8.6c4.8-1.3 9.8-1.3 14.6 0" /><path d="M4.7 15.4c4.8 1.3 9.8 1.3 14.6 0" />',
+  },
+  {
+    name: "Office & school",
+    icon: '<path d="M3.5 4.5h5.5a3 3 0 0 1 3 3v12a2.5 2.5 0 0 0-2.5-2.5H3.5z" /><path d="M20.5 4.5H15a3 3 0 0 0-3 3v12a2.5 2.5 0 0 1 2.5-2.5h6z" />',
+  },
+];
+---
+
+<section class="categories" aria-labelledby="categories-heading">
+  <div class="section-head">
+    <h2 id="categories-heading">Start with a category</h2>
+    <p class="section-intro">Everything the market has to offer, one shelf at a time.</p>
+  </div>
+
+  <ul class="cat-grid">
+    {categories.map((c) => (
+      <li>
+        <a class="cat-tile" href="#">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={c.icon} />
+          <span class="cat-name">{c.name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .categories {
+    padding: clamp(2.25rem, 6vw, 4rem) 0;
+  }
+
+  .section-head {
+    text-align: center;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .section-intro {
+    max-width: 540px;
+    margin: 0.75rem auto 0;
+    font-size: 1rem;
+    color: var(--body);
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.875rem;
+    list-style: none;
+    padding: 0;
+    margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  }
+
+  /* Hover = slight darkening only, no transition. */
+  .cat-tile {
+    display: grid;
+    justify-items: center;
+    gap: 0.7rem;
+    padding: clamp(1.25rem, 2.75vw, 1.75rem) 0.75rem;
+    border-radius: var(--r-card);
+    background: var(--chip);
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .cat-tile:hover {
+    background: #DEE9F9;
+  }
+
+  .cat-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* 4-up desktop → 2-up tablet → 1-up on the smallest phones. */
+  @media (max-width: 899px) {
+    .cat-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 409px) {
+    .cat-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

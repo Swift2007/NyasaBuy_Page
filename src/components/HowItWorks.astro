@@ -1,0 +1,107 @@
+---
+// How it works: three numbered steps on light tiles, matching the mock-tile treatment.
+const steps = [
+  {
+    num: "01",
+    title: "Browse the shop",
+    body: "Search or scroll through thousands of listings from trusted sellers across Malawi — from phones to maize flour.",
+  },
+  {
+    num: "02",
+    title: "Pay your way",
+    body: "Check out with Airtel Money, TNM Mpamba or your card. Your money stays protected until delivery.",
+  },
+  {
+    num: "03",
+    title: "Get it delivered",
+    body: "Track your order as it travels from the seller's door to yours, with updates all the way.",
+  },
+];
+---
+
+<section class="how-it-works" aria-labelledby="how-it-works-heading">
+  <div class="section-head">
+    <h2 id="how-it-works-heading">How NyasaBuy works</h2>
+    <p class="section-intro">From browsing to your doorstep in three simple steps.</p>
+  </div>
+
+  <ul class="steps">
+    {steps.map((s) => (
+      <li class="step">
+        <!-- The number is decorative: the list's order already conveys the sequence. -->
+        <span class="step-num" aria-hidden="true">{s.num}</span>
+        <h3 class="step-title">{s.title}</h3>
+        <p class="step-body">{s.body}</p>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .how-it-works {
+    padding: clamp(2.25rem, 6vw, 4rem) 0;
+  }
+
+  .section-head {
+    text-align: center;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .section-intro {
+    max-width: 540px;
+    margin: 0.75rem auto 0;
+    font-size: 1rem;
+    color: var(--body);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  }
+
+  /* Light tile treatment mirrors the sellers-pane stat tiles (#FAFBFD, no border). */
+  .step {
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+    padding: clamp(1.125rem, 2.5vw, 1.5rem);
+    border-radius: var(--r-card);
+    background: #FAFBFD;
+    text-align: left;
+  }
+
+  .step-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--navy);
+    opacity: 0.35;
+  }
+
+  .step-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+
+  .step-body {
+    font-size: 0.9375rem;
+    color: var(--body);
+  }
+
+  /* Steps hold 3-up until 640px, then stack. */
+  @media (max-width: 639px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
