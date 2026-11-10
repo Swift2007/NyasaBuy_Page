@@ -29,21 +29,29 @@ import Footer from "../components/Footer.astro";
   </div>
 
   <script is:inline>
-    // Mobile menu toggle
+    // Mobile menu toggle: aria-expanded stays the source of truth and the
+    // .menu-open class drives the grid-rows drawer animation in the header.
     const menuBtn = document.querySelector("[data-menu-toggle]");
-    const menuPanel = document.getElementById("mobile-nav");
-    if (menuBtn && menuPanel) {
+    const menuHeader = menuBtn ? menuBtn.closest(".site-header") : null;
+    if (menuBtn && menuHeader) {
+      const setMenu = (open) => {
+        menuBtn.setAttribute("aria-expanded", String(open));
+        menuHeader.classList.toggle("menu-open", open);
+      };
+
       menuBtn.addEventListener("click", () => {
-        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
-        menuBtn.setAttribute("aria-expanded", String(!isOpen));
-        menuPanel.hidden = isOpen;
+        setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+      });
+
+      // Picking a destination closes the drawer so the page shows through.
+      menuHeader.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => setMenu(false));
       });
 
       // Escape closes the open mobile menu and returns focus to the toggle.
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
-          menuBtn.setAttribute("aria-expanded", "false");
-          menuPanel.hidden = true;
+          setMenu(false);
           menuBtn.focus();
         }
       });
@@ -132,6 +140,30 @@ import Footer from "../components/Footer.astro";
           });
         }
         startRotate();
+      }
+    }
+
+    // One-shot scroll reveal: each .reveal block fades and rises once as it
+    // enters the viewport, then stops being observed. The CSS side is gated
+    // on html.js-motion, so without JS the blocks simply render visible.
+    const reveals = document.querySelectorAll(".reveal");
+    if (reveals.length) {
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px" }
+        );
+        reveals.forEach((el) => revealObserver.observe(el));
+      } else {
+        // No observer support: skip the effect rather than hide content.
+        reveals.forEach((el) => el.classList.add("in-view"));
       }
     }
   </script>

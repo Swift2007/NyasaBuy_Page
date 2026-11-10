@@ -17,6 +17,9 @@
 
   --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
+
+  /* Shared ease for every motion on the page: quick start, long settle. */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
 }
 
 *,
@@ -62,6 +65,7 @@ input {
 
 a {
   color: inherit;
+  transition: color 140ms ease;
 }
 
 :focus-visible {
@@ -105,6 +109,7 @@ a {
   font-size: 0.9375rem;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, transform 130ms var(--ease-out);
 }
 
 .btn-solid {
@@ -124,6 +129,14 @@ a {
 
 .btn-outline:hover {
   background: #F1F4F9;
+}
+
+/* Press feedback lands on pointer-down, not release. Reduced-motion users
+   keep the color response but get no scale movement. */
+@media (prefers-reduced-motion: no-preference) {
+  .btn:active {
+    transform: scale(0.97);
+  }
 }
 
 /* Smooth anchor scrolling only for users who haven't opted out of motion. */
@@ -168,4 +181,24 @@ a {
 /* The navy outline vanishes on the navy pill itself. */
 .skip-link:focus-visible {
   outline-color: #DEEBF7;
+}
+
+/* Scroll-in reveal: blocks tagged .reveal fade and rise once as they enter
+   the viewport. Gated on html.js-motion (set by an inline head script) so
+   content is never stranded invisible if JS is off, and skipped entirely for
+   reduced-motion users. Per-element stagger uses --reveal-delay. */
+@media (prefers-reduced-motion: no-preference) {
+  .js-motion .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 550ms ease,
+      transform 550ms var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js-motion .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
 }

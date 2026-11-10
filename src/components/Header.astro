@@ -30,7 +30,6 @@
 
     <div class="header-actions">
       <a class="contact-link" href="#cta">Contact us</a>
-      <a class="btn btn-outline" href="#">Log in</a>
       <a class="btn btn-solid" href="#">Get started for free</a>
       <button
         class="menu-btn"
@@ -47,13 +46,19 @@
     </div>
   </div>
 
-  <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Primary mobile">
-    <a class="mobile-link" href="#featured">Shop</a>
-    <a class="mobile-link" href="#categories">Categories</a>
-    <a class="mobile-link" href="#sell">Sell with us</a>
-    <a class="mobile-link" href="#faq">Help</a>
-    <a class="mobile-link" href="#">Deals</a>
-    <a class="mobile-link" href="#cta">Contact us</a>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Primary mobile">
+    <!-- .mobile-nav-clip is the animated grid row; .mobile-nav-links clips the
+         overflow while the row grows, so links slide out instead of jumping. -->
+    <div class="mobile-nav-clip">
+      <div class="mobile-nav-links">
+        <a class="mobile-link" href="#featured">Shop</a>
+        <a class="mobile-link" href="#categories">Categories</a>
+        <a class="mobile-link" href="#sell">Sell with us</a>
+        <a class="mobile-link" href="#faq">Help</a>
+        <a class="mobile-link" href="#">Deals</a>
+        <a class="mobile-link" href="#cta">Contact us</a>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -149,16 +154,46 @@
     background: var(--white);
     color: var(--navy);
     cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, transform 130ms var(--ease-out);
   }
 
   .menu-btn:hover {
     background: #F1F4F9;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .menu-btn:active {
+      transform: scale(0.95);
+    }
+  }
+
+  /* Mobile drawer: hidden at desktop widths; on small screens it lives in the
+     flow as a 0fr grid row that grows to 1fr when .menu-open is set on the
+     header, so it animates open and closed instead of toggling display. */
   .mobile-nav {
     display: none;
-    flex-direction: column;
-    padding: 0.5rem 0;
+  }
+
+  .mobile-nav-clip {
+    display: grid;
+    grid-template-rows: 0fr;
+  }
+
+  .mobile-nav-links {
+    overflow: hidden;
+    min-height: 0;
+    padding: 0.25rem 0 0.75rem;
+    visibility: hidden;
+  }
+
+  .menu-open .mobile-nav-clip {
+    grid-template-rows: 1fr;
+  }
+
+  /* Visibility flips instantly on open, and only after the row finishes
+     collapsing on close, so the links stay reachable mid-animation. */
+  .menu-open .mobile-nav-links {
+    visibility: visible;
   }
 
   .mobile-link {
@@ -170,6 +205,20 @@
     border-top: 1px solid #F1F4F9;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .js-motion .mobile-nav-clip {
+      transition: grid-template-rows 280ms var(--ease-out);
+    }
+
+    .js-motion .mobile-nav-links {
+      transition: visibility 0s linear 280ms;
+    }
+
+    .js-motion .menu-open .mobile-nav-links {
+      transition: visibility 0s;
+    }
+  }
+
   @media (max-width: 899px) {
     .main-nav {
       display: none;
@@ -179,8 +228,8 @@
       display: inline-flex;
     }
 
-    .mobile-nav:not([hidden]) {
-      display: flex;
+    .mobile-nav {
+      display: block;
     }
   }
 

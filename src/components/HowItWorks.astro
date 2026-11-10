@@ -4,7 +4,7 @@ const steps = [
   {
     num: "01",
     title: "Browse the shop",
-    body: "Search or scroll through thousands of listings from trusted sellers across Malawi — from phones to maize flour.",
+    body: "Search or scroll through thousands of listings from trusted sellers across Malawi.",
   },
   {
     num: "02",
@@ -20,14 +20,14 @@ const steps = [
 ---
 
 <section class="how-it-works" id="how-it-works" aria-labelledby="how-it-works-heading">
-  <div class="section-head">
+  <div class="section-head reveal">
     <h2 id="how-it-works-heading">How NyasaBuy works</h2>
     <p class="section-intro">From browsing to your doorstep in three simple steps.</p>
   </div>
 
   <ul class="steps">
-    {steps.map((s) => (
-      <li class="step">
+    {steps.map((s, i) => (
+      <li class="step reveal" style={`--reveal-delay: ${i * 90}ms`}>
         <!-- The number is decorative: the list's order already conveys the sequence. -->
         <span class="step-num" aria-hidden="true">{s.num}</span>
         <h3 class="step-title">{s.title}</h3>

@@ -6,7 +6,7 @@ interface Props {
   description: string;
 }
 
-const { title = "NyasaBuy — Everything you need, delivered across Malawi", description } = Astro.props;
+const { title = "NyasaBuy | Everything you need, delivered across Malawi", description } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -22,6 +22,7 @@ const { title = "NyasaBuy — Everything you need, delivered across Malawi", des
       rel="stylesheet"
     />
     <title>{title}</title>
+    <script is:inline>document.documentElement.classList.add("js-motion");</script>
   </head>
   <body>
     <slot />
