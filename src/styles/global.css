@@ -1,0 +1,125 @@
+/* Design tokens + reset + shared button styles for the NyasaBuy landing page. */
+
+:root {
+  --page-bg: #F6F7FA;
+  --navy: #0D1B33;
+  --navy-hover: #1A2A4A;
+  --body: #5B6785;
+  --accent: #2563EB;
+  --accent-deep: #1A4FBF;
+  --chip: #EAF1FB;
+  --white: #FFFFFF;
+
+  --r-frame: 32px;
+  --r-panel: 40px;
+  --r-btn: 12px;
+  --r-card: 16px;
+
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--page-bg);
+  color: var(--body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Shared page frame: the large white container the whole page sits in. */
+.page-frame {
+  max-width: 1180px;
+  margin: clamp(1rem, 3vw, 2.5rem) auto;
+  background: var(--white);
+  border-radius: var(--r-frame);
+  padding: clamp(1.25rem, 4vw, 3.25rem) clamp(1.25rem, 4.5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem);
+}
+
+/* Shared buttons: solid navy and navy-outlined variants. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--r-btn);
+  border: 1.5px solid transparent;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-solid {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-solid:hover {
+  background: var(--navy-hover);
+}
+
+.btn-outline {
+  background: var(--white);
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.btn-outline:hover {
+  background: #F1F4F9;
+}

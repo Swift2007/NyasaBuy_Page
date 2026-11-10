@@ -1,0 +1,681 @@
+---
+// Signature showcase: gradient mesh panel with four ARIA-tabbed feature cards.
+// Only interactivity: tab switching (script lives in src/pages/index.astro).
+---
+
+<section class="showcase">
+  <div class="tabs" role="tablist" aria-label="Explore NyasaBuy">
+    <button
+      class="tab"
+      type="button"
+      id="tab-shopping"
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-shopping"
+    >
+      <span class="visually-hidden">Shopping</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5.5 8.5h13l-1 11.5h-11z" />
+        <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" />
+      </svg>
+    </button>
+    <button
+      class="tab"
+      type="button"
+      id="tab-payments"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-payments"
+      tabindex="-1"
+    >
+      <span class="visually-hidden">Payments</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5.5" width="18" height="13" rx="2" />
+        <path d="M3 10h18" />
+        <path d="M6.5 15h4" />
+      </svg>
+    </button>
+    <button
+      class="tab"
+      type="button"
+      id="tab-delivery"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-delivery"
+      tabindex="-1"
+    >
+      <span class="visually-hidden">Delivery</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2.5 16.5V7.5h10v9" />
+        <path d="M12.5 10.5H17l2.5 3v3h-2" />
+        <circle cx="7" cy="17" r="1.8" />
+        <circle cx="16" cy="17" r="1.8" />
+        <path d="M8.8 17h5.4" />
+      </svg>
+    </button>
+    <button
+      class="tab"
+      type="button"
+      id="tab-sellers"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-sellers"
+      tabindex="-1"
+    >
+      <span class="visually-hidden">Sellers</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 9.5 5.2 5h13.6L20 9.5" />
+        <path d="M4 9.5h16" />
+        <path d="M5.5 9.5v9h13v-9" />
+        <path d="M10 18.5v-4.5h4v4.5" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="panes">
+    <div class="pane is-active" id="panel-shopping" role="tabpanel" aria-labelledby="tab-shopping">
+      <article class="panel-card">
+        <div class="panel-copy">
+          <p class="panel-label"><span class="label-dot" style="background:#339E35;"></span>Shopping</p>
+          <h2>Find what you need in seconds</h2>
+          <p class="panel-text">
+            Search thousands of listings and jump straight to what you need with
+            smart categories and saved shops.
+          </p>
+          <a class="learn-more" href="#">Learn more
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h10" /><path d="m9.5 5 3 3-3 3" /></svg>
+          </a>
+        </div>
+        <div class="panel-visual" aria-hidden="true">
+          <div class="mock app-card">
+            <div class="mock-search">
+              <svg viewBox="0 0 14 14" width="13" height="13" aria-hidden="true" fill="none" stroke="#5B6785" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="3.4" /><path d="m8.7 8.7 2.6 2.6" /></svg>
+              <span class="mock-search-text">Search products</span>
+            </div>
+            <div class="mock-chip-row">
+              <span class="mock-chip">Phones</span>
+              <span class="mock-chip">Fashion</span>
+              <span class="mock-chip">Groceries</span>
+              <span class="mock-chip">Home</span>
+            </div>
+            <div class="mock-grid">
+              <div class="mock-tile"><span class="thumb" style="background:#EAF1FB;"></span><span class="name">Earbuds</span><span class="price">MWK 12,500</span></div>
+              <div class="mock-tile"><span class="thumb" style="background:#FBE7E9;"></span><span class="name">Maxi dress</span><span class="price">MWK 8,900</span></div>
+              <div class="mock-tile"><span class="thumb" style="background:#E9F6EC;"></span><span class="name">Rice 10kg</span><span class="price">MWK 15,000</span></div>
+              <div class="mock-tile"><span class="thumb" style="background:#E7EAF3;"></span><span class="name">Desk lamp</span><span class="price">MWK 6,300</span></div>
+              <div class="mock-tile"><span class="thumb" style="background:#E6EEFC;"></span><span class="name">Sneakers</span><span class="price">MWK 25,000</span></div>
+              <div class="mock-tile"><span class="thumb" style="background:#F6F7FA;"></span><span class="name">Kettle</span><span class="price">MWK 17,400</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="pane" id="panel-payments" role="tabpanel" aria-labelledby="tab-payments">
+      <article class="panel-card">
+        <div class="panel-copy">
+          <p class="panel-label"><span class="label-dot" style="background:#CE1126;"></span>Payments</p>
+          <h2>Pay the way you already do</h2>
+          <p class="panel-text">
+            Check out with the methods Malawians trust — no card required to get
+            started.
+          </p>
+          <a class="learn-more" href="#">Learn more
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h10" /><path d="m9.5 5 3 3-3 3" /></svg>
+          </a>
+        </div>
+        <div class="panel-visual" aria-hidden="true">
+          <div class="mock app-card">
+            <p class="mock-heading">Checkout</p>
+            <div class="pay-option is-selected">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="#CE1126" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3.5" width="8" height="17" rx="1.8" /><path d="M11 17.5h2" /></svg>
+              <span class="pay-name">Airtel Money</span>
+              <span class="radio"></span>
+            </div>
+            <div class="pay-option">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="#339E35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4.5" width="8" height="15" rx="1.8" /><path d="M11 17h2" /><path d="M6.2 6.5a6 6 0 0 0 0-1.5M17.8 17.5a6 6 0 0 0 0 1.5" /></svg>
+              <span class="pay-name">TNM Mpamba</span>
+              <span class="radio"></span>
+            </div>
+            <div class="pay-option">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="#1E3A8A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="2" /><path d="M3.5 10.5h17" /></svg>
+              <span class="pay-name">Card (Visa)</span>
+              <span class="radio"></span>
+            </div>
+            <div class="pay-total"><span>Total</span><strong>MWK 45,000</strong></div>
+            <span class="mock-btn">Pay MWK 45,000</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="pane" id="panel-delivery" role="tabpanel" aria-labelledby="tab-delivery">
+      <article class="panel-card">
+        <div class="panel-copy">
+          <p class="panel-label"><span class="label-dot" style="background:#2563EB;"></span>Delivery</p>
+          <h2>Track your order to your door</h2>
+          <p class="panel-text">
+            Live status updates from the shop to your doorstep, with a driver you
+            can rely on.
+          </p>
+          <a class="learn-more" href="#">Learn more
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h10" /><path d="m9.5 5 3 3-3 3" /></svg>
+          </a>
+        </div>
+        <div class="panel-visual" aria-hidden="true">
+          <div class="mock app-card">
+            <div class="mock-map">
+              <svg viewBox="0 0 200 74" width="100%" height="74" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M18 62 C 55 62 45 30 84 30 S 130 52 156 26 158 14 176 12" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" />
+                <circle cx="18" cy="62" r="4" fill="#0D1B33" />
+                <path d="M176 4c-4.4 0-8 3.5-8 7.9 0 5.6 8 13.1 8 13.1s8-7.5 8-13.1c0-4.4-3.6-7.9-8-7.9z" fill="#2563EB" />
+                <circle cx="176" cy="11.6" r="2.8" fill="#fff" />
+              </svg>
+            </div>
+            <ul class="timeline">
+              <li class="tl-done"><span class="tl-dot"></span>Ordered<span class="tl-time">Tue 10:24</span></li>
+              <li class="tl-done"><span class="tl-dot"></span>Packed<span class="tl-time">Tue 12:05</span></li>
+              <li class="tl-active"><span class="tl-dot"></span>Out for delivery</li>
+              <li class="tl-pending"><span class="tl-dot"></span>Delivered</li>
+            </ul>
+            <p class="mock-note">Arriving today by 5:00 PM</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="pane" id="panel-sellers" role="tabpanel" aria-labelledby="tab-sellers">
+      <article class="panel-card">
+        <div class="panel-copy">
+          <p class="panel-label"><span class="label-dot" style="background:#1E3A8A;"></span>Sellers</p>
+          <h2>Open your shop on NyasaBuy</h2>
+          <p class="panel-text">
+            List products in minutes and manage orders, payouts and customers
+            from one dashboard.
+          </p>
+          <a class="learn-more" href="#">Learn more
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h10" /><path d="m9.5 5 3 3-3 3" /></svg>
+          </a>
+        </div>
+        <div class="panel-visual" aria-hidden="true">
+          <div class="mock app-card">
+            <div class="stat-row">
+              <div class="stat"><span class="stat-label">Orders</span><span class="stat-value">12</span></div>
+              <div class="stat"><span class="stat-label">Earnings</span><span class="stat-value">MWK 128,500</span></div>
+              <div class="stat"><span class="stat-label">New customers</span><span class="stat-value">8</span></div>
+            </div>
+            <p class="mock-heading">Recent orders</p>
+            <div class="order-row">
+              <span class="avatar" style="background:#E9F6EC;">MK</span>
+              <span class="order-name">Mens sneakers</span>
+              <span class="status chip-paid">Paid</span>
+            </div>
+            <div class="order-row">
+              <span class="avatar" style="background:#FBE7E9;">TA</span>
+              <span class="order-name">Ankara handbag</span>
+              <span class="status chip-posted">Posted</span>
+            </div>
+            <div class="order-row">
+              <span class="avatar" style="background:#E7EAF3;">JC</span>
+              <span class="order-name">Bluetooth speaker</span>
+              <span class="status chip-shipped">Shipped</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase {
+    border-radius: var(--r-panel);
+    padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.25rem, 3.5vw, 2.5rem) clamp(1.75rem, 4.5vw, 3rem);
+    overflow: hidden;
+    /* Layered radial mesh: light blue glow, mid blue, deep navy corners. */
+    background:
+      radial-gradient(42rem 30rem at 12% 6%, #BBD4F6 0%, rgba(187, 212, 246, 0) 60%),
+      radial-gradient(40rem 30rem at 90% 0%, #5B8DEF 0%, rgba(91, 141, 239, 0) 62%),
+      radial-gradient(48rem 34rem at 88% 100%, #0D1B33 0%, rgba(13, 27, 51, 0) 62%),
+      radial-gradient(44rem 32rem at 6% 96%, #1A4FBF 0%, rgba(26, 79, 191, 0) 58%),
+      linear-gradient(160deg, #A8C4EC 0%, #5B8DEF 48%, #0D1B33 100%);
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+    margin-bottom: 1.625rem;
+  }
+
+  .tab {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.28);
+    color: rgba(238, 243, 250, 0.8);
+    cursor: pointer;
+  }
+
+  .tab:hover {
+    background: rgba(255, 255, 255, 0.38);
+  }
+
+  /* Navy outline is invisible on the dark mesh, so tabs use a white one. */
+  .tab:focus-visible {
+    outline-color: #fff;
+  }
+
+  .tab[aria-selected="true"] {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  /* Rounded notch bridging the active tab down to the card. */
+  .tab[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 4px;
+    background: var(--accent);
+  }
+
+  .panes {
+    display: grid;
+  }
+
+  /* Panes stack in one grid cell so the cross-fade never shifts layout. */
+  .pane {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .pane.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Deactivating pane needs visibility to flip only after the fade ends. */
+    .pane {
+      transition: opacity 300ms ease, visibility 0s linear 300ms;
+    }
+
+    .pane.is-active {
+      transition: opacity 300ms ease;
+    }
+  }
+
+  .panel-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: center;
+    padding: clamp(1.375rem, 3.5vw, 2.25rem);
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px -24px rgba(13, 27, 51, 0.45);
+  }
+
+  .panel-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--body);
+  }
+
+  .label-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .panel-copy h2 {
+    margin-top: 0.75rem;
+    font-size: clamp(1.375rem, 2.4vw, 1.625rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .panel-text {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--body);
+  }
+
+  .learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1.125rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .learn-more:hover {
+    color: var(--navy-hover);
+  }
+
+  .panel-visual {
+    display: flex;
+    justify-content: center;
+    padding: clamp(1.125rem, 2.5vw, 1.75rem);
+    border-radius: 20px;
+    background: linear-gradient(180deg, #EAF1FB 0%, #E0EAF9 100%);
+  }
+
+  /* ——— Shared mock-UI pieces (decorative, aria-hidden) ——— */
+
+  .app-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.125rem;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 14px 34px -16px rgba(13, 27, 51, 0.35);
+  }
+
+  .mock-heading {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .mock-btn {
+    display: block;
+    margin-top: 0.75rem;
+    padding: 0.625rem 1rem;
+    border-radius: var(--r-btn);
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Shopping mock */
+  .mock-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #E3E9F2;
+    border-radius: 10px;
+    background: var(--white);
+  }
+
+  .mock-search-text {
+    font-size: 0.8125rem;
+    color: #9AA5BC;
+  }
+
+  .mock-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.625rem;
+  }
+
+  .mock-chip {
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    background: var(--chip);
+    color: var(--accent-deep);
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  .mock-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .mock-tile {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: #FAFBFD;
+  }
+
+  .thumb {
+    height: 32px;
+    border-radius: 6px;
+  }
+
+  .mock-tile .name {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .mock-tile .price {
+    font-size: 0.625rem;
+    color: var(--body);
+  }
+
+  /* Payments mock */
+  .pay-option {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-top: 0.625rem;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid #EDF1F7;
+    border-radius: 10px;
+  }
+
+  .pay-option.is-selected {
+    border-color: var(--accent);
+    background: var(--chip);
+  }
+
+  .pay-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .radio {
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+    border: 1.5px solid #C3CCDC;
+    border-radius: 50%;
+  }
+
+  .is-selected .radio {
+    border-color: var(--accent);
+    background: radial-gradient(circle, var(--accent) 0 4px, transparent 4.5px);
+  }
+
+  .pay-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.875rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #EDF1F7;
+    font-size: 0.8125rem;
+    color: var(--body);
+  }
+
+  .pay-total strong {
+    color: var(--navy);
+  }
+
+  /* Delivery mock */
+  .mock-map {
+    border-radius: 12px;
+    background: linear-gradient(180deg, #DDE9FA 0%, #EBF2FC 100%);
+    overflow: hidden;
+  }
+
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0.875rem 0 0;
+  }
+
+  .timeline li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.375rem 0 0.375rem 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--navy);
+  }
+
+  .timeline li + li::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: 5px;
+    height: 0.9rem;
+    width: 1.5px;
+    background: #E0E6F0;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #C3CCDC;
+  }
+
+  .tl-done .tl-dot {
+    background: var(--navy);
+  }
+
+  .tl-active .tl-dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+  }
+
+  .tl-active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .tl-pending {
+    color: #9AA5BC;
+  }
+
+  .tl-time {
+    margin-left: auto;
+    font-size: 0.6875rem;
+    color: var(--body);
+  }
+
+  .mock-note {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #EDF1F7;
+    font-size: 0.75rem;
+    color: var(--body);
+  }
+
+  /* Sellers mock */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stat {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: 10px;
+    background: #FAFBFD;
+  }
+
+  .stat-label {
+    font-size: 0.625rem;
+    color: var(--body);
+  }
+
+  .stat-value {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .app-card .mock-heading {
+    margin-top: 0.875rem;
+    font-size: 0.8125rem;
+  }
+
+  .order-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.375rem 0;
+    border-top: 1px solid #F1F4F9;
+  }
+
+  .avatar {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.5625rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .order-name {
+    font-size: 0.75rem;
+    color: var(--navy);
+  }
+
+  .status {
+    margin-left: auto;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.625rem;
+    font-weight: 600;
+  }
+
+  .chip-paid {
+    background: #E9F6EC;
+    color: #227A31;
+  }
+
+  .chip-posted {
+    background: #E6EEFC;
+    color: var(--accent-deep);
+  }
+
+  .chip-shipped {
+    background: #EEF1F6;
+    color: var(--body);
+  }
+
+  @media (max-width: 819px) {
+    .panel-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

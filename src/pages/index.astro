@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Showcase from "../components/Showcase.astro";
+---
+<Layout description="Shop phones, fashion, groceries and home goods from trusted sellers across Malawi. Pay with Airtel Money, TNM Mpamba or card.">
+  <div class="page-frame">
+    <Header />
+    <main>
+      <Hero />
+      <Showcase />
+    </main>
+  </div>
+
+  <script is:inline>
+    // Mobile menu toggle
+    const menuBtn = document.querySelector("[data-menu-toggle]");
+    const menuPanel = document.getElementById("mobile-nav");
+    if (menuBtn && menuPanel) {
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+        menuPanel.hidden = isOpen;
+      });
+    }
+
+    // ARIA tabs pattern: roving tabindex, selection follows focus on
+    // Left/Right/Home/End; each tab's aria-controls matches its panel id.
+    const tablist = document.querySelector('[role="tablist"]');
+    if (tablist) {
+      const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+      const panels = tabs.flatMap((tab) => {
+        const panel = document.getElementById(tab.getAttribute("aria-controls"));
+        return panel ? [panel] : [];
+      });
+      if (panels.length === tabs.length) {
+        const select = (index) => {
+          tabs.forEach((tab, i) => {
+            const active = i === index;
+            tab.setAttribute("aria-selected", String(active));
+            tab.tabIndex = active ? 0 : -1;
+            panels[i].classList.toggle("is-active", active);
+          });
+        };
+        tabs.forEach((tab, i) => {
+          tab.addEventListener("click", () => select(i));
+          tab.addEventListener("keydown", (event) => {
+            let next = null;
+            if (event.key === "ArrowRight") next = (i + 1) % tabs.length;
+            else if (event.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+            else if (event.key === "Home") next = 0;
+            else if (event.key === "End") next = tabs.length - 1;
+            if (next !== null) {
+              event.preventDefault();
+              select(next);
+              tabs[next].focus();
+            }
+          });
+        });
+      }
+    }
+  </script>
+</Layout>
