@@ -1,0 +1,78 @@
+---
+// FinalCta: light closing call-to-action — one ask, hero-mirrored footnote.
+---
+
+<section class="final-cta" id="cta" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">Ready to start shopping?</h2>
+  <p class="cta-copy">
+    Download the app or browse on the website — your phone number is all you
+    need to begin.
+  </p>
+
+  <div class="cta-actions">
+    <a class="btn btn-solid" href="#">Get started for free</a>
+    <a class="btn btn-outline" href="#">Contact us</a>
+  </div>
+
+  <p class="cta-footnote">
+    <a class="footnote-link" href="#featured">Browse on the website</a>
+    <span class="footnote-sep" aria-hidden="true">•</span> No card needed to sign up
+  </p>
+</section>
+
+<style>
+  .final-cta {
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem);
+    border-radius: var(--r-frame);
+    text-align: center;
+    /* Quieter sibling of the showcase mesh: a flat light-blue field with two
+       soft #DEEBF7 glows instead of a full multi-corner mesh. The #E2EDF9 mid
+       stop keeps body copy at ≥ ≈4.75:1 across the whole band (WCAG AA);
+       the previous #D8E6F9 dipped to 4.46:1 at its brightest point. */
+    background:
+      radial-gradient(26rem 15rem at 82% -16%, #DEEBF7 0%, rgba(222, 235, 247, 0) 55%),
+      radial-gradient(28rem 16rem at 12% 128%, #DEEBF7 0%, rgba(222, 235, 247, 0) 58%),
+      linear-gradient(170deg, var(--chip) 0%, #E2EDF9 60%, #DEEBF7 100%);
+  }
+
+  .final-cta h2 {
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    line-height: 1.15;
+  }
+
+  .cta-copy {
+    max-width: 540px;
+    margin: 0.75rem auto 0;
+    font-size: 1.0625rem;
+    color: var(--body);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  /* Footnote row mirrors the hero's browse footnote. */
+  .cta-footnote {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    color: var(--body);
+  }
+
+  .footnote-link {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footnote-link:hover {
+    color: var(--navy-hover);
+  }
+
+  .footnote-sep {
+    margin: 0 0.4em;
+  }
+</style>

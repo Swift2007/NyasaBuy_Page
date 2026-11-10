@@ -1,7 +1,4 @@
----
-// Sell: navy conversion block — tagline eyebrow, seller CTAs and the trust note.
-
-<section class="sell" aria-labelledby="sell-heading">
+<section class="sell" id="sell" aria-labelledby="sell-heading">
   <p class="sell-eyebrow">Let the market find you</p>
   <h2 id="sell-heading">Turn your shop into an online store</h2>
   <p class="sell-copy">
@@ -26,15 +23,23 @@
   .sell {
     padding: clamp(2.25rem, 6vw, 3.5rem);
     border-radius: var(--r-frame);
-    background: var(--navy);
     text-align: center;
+    /* Navy base sits under every text row (white on #0D1B33 ≈ 17:1); the
+       light and grey-blue glows are short and hug the top corners so they
+       never extend behind the eyebrow/copy, and the bottom bloom is the
+       slightly lighter navy-hover for the same reason. */
+    background:
+      radial-gradient(24rem 14rem at 8% -14%, #DEEBF7 0%, rgba(222, 235, 247, 0) 42%),
+      radial-gradient(24rem 15rem at 94% -12%, #5B6785 0%, rgba(91, 103, 133, 0) 46%),
+      radial-gradient(30rem 16rem at 50% 125%, var(--navy-hover) 0%, rgba(26, 42, 74, 0) 50%),
+      linear-gradient(168deg, var(--navy-hover) 0%, var(--navy) 52%, var(--navy) 100%);
   }
 
   .sell-eyebrow {
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .sell h2 {
@@ -49,7 +54,7 @@
     margin: 1rem auto 0;
     font-size: 1.0625rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .sell-actions {
@@ -72,12 +77,12 @@
 
   .btn-ghost {
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.45);
     color: var(--white);
   }
 
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   /* The global focus outline is navy, which vanishes against this panel. */
@@ -86,10 +91,12 @@
     outline-color: var(--white);
   }
 
+  /* 0.78 keeps AA headroom even in the navy-hover bloom's edge zone
+     (worst-case blend there measures ≈9.2:1; the base is well above it). */
   .sell-note {
     margin-top: 1.25rem;
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.78);
   }
 
   .note-sep {

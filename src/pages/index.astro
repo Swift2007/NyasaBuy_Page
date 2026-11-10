@@ -8,11 +8,14 @@ import Categories from "../components/Categories.astro";
 import FeaturedProducts from "../components/FeaturedProducts.astro";
 import Sell from "../components/Sell.astro";
 import Faq from "../components/Faq.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
 ---
 <Layout description="Shop phones, fashion, groceries and home goods from trusted sellers across Malawi. Pay with Airtel Money, TNM Mpamba or card.">
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="page-frame">
     <Header />
-    <main>
+    <main id="main">
       <Hero />
       <Showcase />
       <HowItWorks />
@@ -20,7 +23,9 @@ import Faq from "../components/Faq.astro";
       <FeaturedProducts />
       <Sell />
       <Faq />
+      <FinalCta />
     </main>
+    <Footer />
   </div>
 
   <script is:inline>
@@ -32,6 +37,15 @@ import Faq from "../components/Faq.astro";
         const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
         menuBtn.setAttribute("aria-expanded", String(!isOpen));
         menuPanel.hidden = isOpen;
+      });
+
+      // Escape closes the open mobile menu and returns focus to the toggle.
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+          menuBtn.setAttribute("aria-expanded", "false");
+          menuPanel.hidden = true;
+          menuBtn.focus();
+        }
       });
     }
 
@@ -45,7 +59,9 @@ import Faq from "../components/Faq.astro";
         return panel ? [panel] : [];
       });
       if (panels.length === tabs.length) {
+        let current = 0;
         const select = (index) => {
+          current = index;
           tabs.forEach((tab, i) => {
             const active = i === index;
             tab.setAttribute("aria-selected", String(active));
@@ -53,8 +69,36 @@ import Faq from "../components/Faq.astro";
             panels[i].classList.toggle("is-active", active);
           });
         };
+
+        // Auto-rotate: the showcase advances itself every AUTO_ROTATE_MS and
+        // loops through the tabs forever. Off entirely for reduced-motion
+        // users, and paused while the pointer is over the panel or something
+        // in it has focus — it resumes as soon as interaction ends.
+        const AUTO_ROTATE_MS = 2500;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const showcase = tablist.closest(".showcase");
+        let rotateTimer = null;
+        let hoverPaused = false;
+        let focusPaused = false;
+        const stopRotate = () => {
+          if (rotateTimer) {
+            clearInterval(rotateTimer);
+            rotateTimer = null;
+          }
+        };
+        const startRotate = () => {
+          if (reducedMotion.matches || hoverPaused || focusPaused || rotateTimer) return;
+          rotateTimer = setInterval(() => select((current + 1) % tabs.length), AUTO_ROTATE_MS);
+        };
+
         tabs.forEach((tab, i) => {
-          tab.addEventListener("click", () => select(i));
+          tab.addEventListener("click", () => {
+            select(i);
+            // Keep the loop going: drop the old countdown and start a fresh
+            // one so the next auto-advance is a full AUTO_ROTATE_MS away.
+            stopRotate();
+            startRotate();
+          });
           tab.addEventListener("keydown", (event) => {
             let next = null;
             if (event.key === "ArrowRight") next = (i + 1) % tabs.length;
@@ -68,6 +112,26 @@ import Faq from "../components/Faq.astro";
             }
           });
         });
+
+        if (showcase) {
+          showcase.addEventListener("mouseenter", () => {
+            hoverPaused = true;
+            stopRotate();
+          });
+          showcase.addEventListener("mouseleave", () => {
+            hoverPaused = false;
+            startRotate();
+          });
+          showcase.addEventListener("focusin", () => {
+            focusPaused = true;
+            stopRotate();
+          });
+          showcase.addEventListener("focusout", () => {
+            focusPaused = false;
+            startRotate();
+          });
+        }
+        startRotate();
       }
     }
   </script>

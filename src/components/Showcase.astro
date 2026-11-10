@@ -248,26 +248,26 @@
     margin-bottom: 1.625rem;
   }
 
+  /* Non-text contrast (WCAG 1.4.11): near-white icons on the glassy tile
+     measured ~1.2:1 because the tabs sit on the mesh's light top edge. Dark
+     icons on a stronger glass surface pull the icon to ~7.4:1 and make the
+     tile itself read as a control; the default navy focus outline now also
+     works here, so the old white-outline override is gone. */
   .tab {
     position: relative;
     display: grid;
     place-items: center;
     width: 44px;
     height: 44px;
-    border: 0;
+    border: 1px solid rgba(13, 27, 51, 0.08);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.28);
-    color: rgba(238, 243, 250, 0.8);
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(13, 27, 51, 0.78);
     cursor: pointer;
   }
 
   .tab:hover {
-    background: rgba(255, 255, 255, 0.38);
-  }
-
-  /* Navy outline is invisible on the dark mesh, so tabs use a white one. */
-  .tab:focus-visible {
-    outline-color: #fff;
+    background: rgba(255, 255, 255, 0.72);
   }
 
   .tab[aria-selected="true"] {
