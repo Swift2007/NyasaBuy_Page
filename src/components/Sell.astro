@@ -8,8 +8,8 @@
   </p>
 
   <div class="sell-actions">
-    <a class="btn btn-light" href="#">Create your free shop</a>
-    <a class="btn btn-ghost" href="#">See seller tools</a>
+    <a class="btn btn-solid" href="#">Create your free shop</a>
+    <a class="btn btn-outline" href="#">See seller tools</a>
   </div>
 
   <p class="sell-note">
@@ -23,29 +23,27 @@
     padding: clamp(2.25rem, 6vw, 3.5rem);
     border-radius: var(--r-frame);
     text-align: center;
-    /* Navy base sits under every text row (white on #0D1B33 ≈ 17:1); the
-       light and grey-blue glows are short and hug the top corners so they
-       never extend behind the eyebrow/copy, and the bottom bloom is the
-       slightly lighter navy-hover for the same reason. */
+    /* Same light field as the final CTA ("Ready to start shopping?"): a flat
+       chip-blue band with two soft #DEEBF7 glows. The #E2EDF9 mid stop keeps
+       body copy at ≥ ≈4.75:1 across the whole band (WCAG AA). */
     background:
-      radial-gradient(24rem 14rem at 8% -14%, #DEEBF7 0%, rgba(222, 235, 247, 0) 42%),
-      radial-gradient(24rem 15rem at 94% -12%, #5B6785 0%, rgba(91, 103, 133, 0) 46%),
-      radial-gradient(30rem 16rem at 50% 125%, var(--navy-hover) 0%, rgba(26, 42, 74, 0) 50%),
-      linear-gradient(168deg, var(--navy-hover) 0%, var(--navy) 52%, var(--navy) 100%);
+      radial-gradient(26rem 15rem at 82% -16%, #DEEBF7 0%, rgba(222, 235, 247, 0) 55%),
+      radial-gradient(28rem 16rem at 12% 128%, #DEEBF7 0%, rgba(222, 235, 247, 0) 58%),
+      linear-gradient(170deg, var(--chip) 0%, #E2EDF9 60%, #DEEBF7 100%);
   }
 
   .sell-eyebrow {
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--navy);
   }
 
   .sell h2 {
     margin-top: 0.75rem;
     font-size: clamp(1.5rem, 2.6vw, 1.875rem);
     line-height: 1.15;
-    color: var(--white);
+    color: var(--navy);
   }
 
   .sell-copy {
@@ -53,7 +51,7 @@
     margin: 1rem auto 0;
     font-size: 1.0625rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--body);
   }
 
   .sell-actions {
@@ -64,38 +62,10 @@
     margin-top: 2rem;
   }
 
-  /* Dark-panel button variants reuse the shared .btn geometry from global.css. */
-  .btn-light {
-    background: var(--white);
-    color: var(--navy);
-  }
-
-  .btn-light:hover {
-    background: #E9EEF7;
-  }
-
-  .btn-ghost {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.45);
-    color: var(--white);
-  }
-
-  .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  /* The global focus outline is navy, which vanishes against this panel. */
-  .btn-light:focus-visible,
-  .btn-ghost:focus-visible {
-    outline-color: var(--white);
-  }
-
-  /* 0.78 keeps AA headroom even in the navy-hover bloom's edge zone
-     (worst-case blend there measures ≈9.2:1; the base is well above it). */
   .sell-note {
     margin-top: 1.25rem;
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--body);
   }
 
   .note-sep {

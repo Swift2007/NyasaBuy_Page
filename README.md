@@ -1,30 +1,30 @@
 # NyasaBuy Landing Page
 
 The public landing page for NyasaBuy, an online marketplace for Malawi. It
-introduces the platform, explains how buying and selling works, and funnels
-visitors toward downloading the app or opening a shop.
+introduces the platform, previews app screens, and guides visitors to browse
+categories or learn about selling.
 
 ## What is on the page
 
 | Section | Purpose |
 | --- | --- |
-| Header | Brand mark, primary navigation, contact and "Get started for free" actions, animated mobile menu |
-| Hero | Headline, one "Download the app" call to action, note that the stores are coming soon |
-| Showcase | Auto-rotating panel (2.5s loop) with four tabs: Shopping, Payments, Delivery, Sellers, each with a mock app screen |
+| Header | Brand mark, section navigation, category action, animated mobile menu |
+| Hero | Headline, category action, and note that app downloads are coming soon |
+| Showcase | User-selected tabs for four illustrative app screens: Shopping, Payments, Delivery, Sellers |
 | How it works | Three steps: browse, pay your way, receive your order |
-| Categories | Eight category tiles for quick entry points |
+| Categories | Eight static tiles preview the marketplace categories |
 | Featured products | Empty state ("Listings coming soon") until real inventory exists |
 | Sell with us | Navy panel pitching sellers: free sign-up, MWK payouts, terms and conditions apply |
 | FAQ | Four questions using the native details/summary accordion |
-| Final CTA | Closing call to action and footnote |
+| Final CTA | Closing links to category previews and FAQs |
 | Footer | Brand recap, link columns, legal row |
 
 ## Tech stack
 
 - [Astro](https://astro.build) 7 (static output, zero framework islands)
 - Plain HTML and scoped CSS in `.astro` components, one global stylesheet
-- A single small inline script for the mobile menu, showcase tabs with
-  auto-rotation, and scroll reveals
+- A single small inline script for the mobile menu, user-selected showcase
+  tabs, and scroll reveals
 - Fonts: Plus Jakarta Sans (headings) and Inter (body) via Google Fonts
 
 ## Project structure
@@ -54,8 +54,9 @@ npm run preview    # preview the built site
   accent blue `#2563EB` / `#1A4FBF`, chip `#EAF1FB`, white surfaces
 - **Radii:** page frame 32px, showcase panel 40px, cards 16px, buttons 12px
 - **Type:** Plus Jakarta Sans 700 for headings (tight tracking), Inter for body
-- **Buttons:** `.btn-solid` (navy), `.btn-outline` (light), `.btn-light` and
-  `.btn-ghost` (on the navy panel)
+- **Buttons:** `.btn-solid` (navy), `.btn-outline` (light), and `.btn-light`
+  (on the navy panel)
+- **Design dials:** ENERGY 2 / RHYTHM 2 / MOTION 2
 
 ## Motion
 
@@ -78,15 +79,13 @@ without JavaScript always get fully visible, instant-responding content.
 
 - Landmarks and labelled sections (`aria-labelledby`), skip link, focus
   outlines
-- Showcase uses the ARIA tabs pattern with roving tabindex and arrow-key
-  navigation; auto-rotation pauses on hover and focus
+- Showcase uses the ARIA tabs pattern with visible labels, roving tabindex and
+  arrow-key navigation
 - Text contrast verified against WCAG AA (worst pair used: 5.26:1)
 - No visible text relies on color alone
 
 ## Placeholders to replace before launch
 
-- All `href="#"` links: store download, Log in / Get started, Deals, category
-  tiles, Learn more, seller CTAs
 - Featured products: still the "Listings coming soon" empty state
-- FAQ copy should be checked against the real business model
-- The showcase mock screens are illustrative app UI, not live data
+- Seller and payment details should be confirmed against the real business model
+- The showcase visibly labels its illustrative app UI; screen data is not live
