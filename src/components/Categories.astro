@@ -1,24 +1,21 @@
 ---
-// Category shelf: a plain-language introduction instead of tiles. Shelf names
-// are set stronger inline so the list scans at a glance without cards.
+// Category shelf: an editorial header row (heading left, intro right) over a
+// plain two-to-four-column text list of the eight categories. No cards, no
+// tiles: the list is bare text, and no spacing depends on whitespace between
+// inline elements (Astro strips those, which ran words together before).
 ---
 
 <section class="categories" id="categories" aria-labelledby="categories-heading">
-  <div class="section-head reveal">
+  <div class="cat-head reveal">
     <h2 id="categories-heading">Start with a category</h2>
-    <p class="section-intro">
-      Everything on NyasaBuy is sorted into eight simple shelves. Browse
-      <span class="shelf">phones and electronics</span>,
-      <span class="shelf">fashion</span>,
-      <span class="shelf">groceries and food</span>,
-      <span class="shelf">home and kitchen</span>,
-      <span class="shelf">health and beauty</span>,
-      <span class="shelf">baby and toys</span>,
-      <span class="shelf">sports and outdoors</span> or
-      <span class="shelf">office and school supplies</span>.
+    <p class="cat-intro">
+      Whatever you are shopping for, you can go straight to it. The market is
+      sorted into eight categories, each stocked by trusted sellers across
+      Malawi.
     </p>
-    <p class="section-note">Every shelf is stocked by trusted sellers across Malawi.</p>
   </div>
+
+  
 </section>
 
 <style>
@@ -26,45 +23,54 @@
     padding: clamp(2.25rem, 6vw, 4rem) 0;
   }
 
-  .section-head {
-    text-align: center;
+  .cat-head {
+    display: grid;
+    gap: 1.25rem;
   }
 
-  .section-head h2 {
+  .cat-head h2 {
     font-size: clamp(1.5rem, 2.6vw, 1.875rem);
     font-weight: 700;
     line-height: 1.15;
   }
 
-  /* Short accent bar under the heading: marks this section without
-     reintroducing card furniture. */
-  .section-head h2::after {
-    content: "";
-    display: block;
-    width: 44px;
-    height: 3px;
-    margin: 0.875rem auto 0;
-    border-radius: 999px;
-    background: var(--navy);
-  }
-
-  .section-intro {
-    max-width: 620px;
-    margin: 1.125rem auto 0;
+  .cat-intro {
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.7;
     color: var(--body);
+    max-width: 56ch;
   }
 
-  /* Shelf names carry the brand navy so the list can be scanned mid-sentence. */
-  .shelf {
+  /* Desktop: heading and intro share one row, intro slightly wider so the
+     heading never squeezes it. */
+  @media (min-width: 900px) {
+    .cat-head {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  .cat-list {
+    margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
+    padding: clamp(1.25rem, 3vw, 1.75rem) 0 0;
+    border-top: 1px solid #D8DEE9;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem 1.5rem;
+  }
+
+  .cat-list li {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--navy);
   }
 
-  .section-note {
-    margin: 1.125rem auto 0;
-    font-size: 0.875rem;
-    color: var(--body);
+  /* Four across on desktop: the eight categories read as two tidy rows. */
+  @media (min-width: 900px) {
+    .cat-list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 </style>

@@ -1,6 +1,8 @@
 ---
-// Footer: navy site footer inside the page frame — brand row, link columns,
-// payments line, legal row.
+// Footer: compact navy footer — brand and the real section links share one
+// row, then payments and the legal line. Only sections that exist on the page
+// are linked; shelf-level links were dropped because category pages do not
+// exist yet, and "Visa" became "Card" to match the page's own payment copy.
 ---
 
 <footer class="footer" aria-label="Footer">
@@ -21,40 +23,19 @@
       </span>
       <span class="brand-name">NyasaBuy</span>
     </a>
-    <p class="tagline">Let the market find you</p>
-  </div>
 
-  <div class="link-columns">
-    <nav aria-label="Shop">
-      <h3>Shop</h3>
-      <ul>
-        <li><a href="#categories">Phones &amp; electronics</a></li>
-        <li><a href="#categories">Fashion</a></li>
-        <li><a href="#categories">Groceries &amp; food</a></li>
-        <li><a href="#categories">Home &amp; kitchen</a></li>
-      </ul>
-    </nav>
-    <nav aria-label="Sell">
-      <h3>Sell</h3>
-      <ul>
-        <li><a href="#sell">Open your shop</a></li>
-        <li><a href="#sell">Seller tools</a></li>
-        <li><a href="#how-it-works">Delivery help</a></li>
-      </ul>
-    </nav>
-    <nav aria-label="Support">
-      <h3>Support</h3>
-      <ul>
-        <li><a href="#cta">Contact us</a></li>
-        <li><a href="#faq">Help centre</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
+    <nav class="footer-nav" aria-label="Site sections">
+      <a href="#categories">Categories</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#sell">Sell with us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta">Contact us</a>
     </nav>
   </div>
 
   <p class="payments">
     Pay with Airtel Money <span class="sep" aria-hidden="true">•</span> TNM
-    Mpamba <span class="sep" aria-hidden="true">•</span> Visa
+    Mpamba <span class="sep" aria-hidden="true">•</span> Card
   </p>
 
   <div class="footer-bottom">
@@ -65,8 +46,8 @@
 
 <style>
   .footer {
-    margin-top: clamp(1.5rem, 4vw, 2.5rem);
-    padding: clamp(2rem, 5vw, 3rem);
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 2.25rem);
     border-radius: var(--r-frame);
     background: var(--navy);
   }
@@ -76,7 +57,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 1rem 1.75rem;
   }
 
   .brand {
@@ -104,48 +85,25 @@
     color: var(--white);
   }
 
-  .tagline {
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem 1.375rem;
+  }
+
+  .footer-nav a {
     font-size: 0.9375rem;
     font-weight: 500;
-    color: rgba(222, 235, 247, 0.8);
-  }
-
-  /* Auto-fit grid: three columns on desktop, wraps on narrow screens. */
-  .link-columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 1.75rem 1.25rem;
-    margin-top: clamp(1.75rem, 4vw, 2.5rem);
-  }
-
-  .link-columns h3 {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .link-columns ul {
-    margin-top: 0.75rem;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .link-columns a {
-    font-size: 0.9375rem;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
   }
 
-  .link-columns a:hover {
+  .footer-nav a:hover {
     color: #DEEBF7;
   }
 
   .payments {
-    margin-top: clamp(1.5rem, 4vw, 2rem);
+    margin-top: clamp(1.25rem, 3vw, 1.75rem);
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.6);
   }
@@ -159,7 +117,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.5rem;
-    margin-top: clamp(1.25rem, 3.5vw, 1.75rem);
+    margin-top: 0.75rem;
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.6);
   }
