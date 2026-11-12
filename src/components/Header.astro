@@ -24,11 +24,11 @@
       <a class="nav-link" href="#categories">Categories</a>
       <a class="nav-link" href="#sell">Sell with us</a>
       <a class="nav-link" href="#faq">Help</a>
-      <a class="nav-link" href="#">Deals</a>
     </nav>
 
     <div class="header-actions">
       <a class="contact-link" href="#cta">Contact us</a>
+      <a class="get-app-link" href="#get-app">Get app</a>
       <button
         class="menu-btn"
         type="button"
@@ -52,8 +52,8 @@
         <a class="mobile-link" href="#categories">Categories</a>
         <a class="mobile-link" href="#sell">Sell with us</a>
         <a class="mobile-link" href="#faq">Help</a>
-        <a class="mobile-link" href="#">Deals</a>
         <a class="mobile-link" href="#cta">Contact us</a>
+        <a class="mobile-link mobile-link-get-app" href="#get-app">Get app</a>
       </div>
     </div>
   </nav>
@@ -61,6 +61,7 @@
 
 <style>
   .site-header {
+    position: relative;
     border-bottom: 1px solid #EEF1F6;
   }
 
@@ -128,6 +129,24 @@
   .contact-link {
     display: inline-flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--r-btn);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 130ms var(--ease-out);
+  }
+
+  .contact-link:hover {
+    background: #F1F4F9;
+  }
+
+  .get-app-link {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.65rem 1.25rem;
@@ -135,17 +154,21 @@
     font-weight: 500;
     font-size: 0.9375rem;
     text-decoration: none;
-    background: var(--navy);
+    background: var(--accent);
     color: var(--white);
     transition: background-color 150ms ease, transform 130ms var(--ease-out);
   }
 
-  .contact-link:hover {
-    background: var(--navy-hover);
+  .get-app-link:hover {
+    background: var(--accent-deep);
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .contact-link:active {
+      transform: scale(0.97);
+    }
+
+    .get-app-link:active {
       transform: scale(0.97);
     }
   }
@@ -174,55 +197,65 @@
     }
   }
 
-  /* Mobile drawer: hidden at desktop widths; on small screens it lives in the
-     flow as a 0fr grid row that grows to 1fr when .menu-open is set on the
-     header, so it animates open and closed instead of toggling display. */
+  /* Mobile menu popup: floats below the pressed menu button, anchored to the
+     right edge where the toggle lives. Appears as a floating panel rather
+     than a full-width drawer. */
   .mobile-nav {
     display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: 240px;
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(13, 27, 51, 0.1),
+      0 8px 10px -6px rgba(13, 27, 51, 0.05);
+    padding: 0.5rem;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.92) translateY(-6px);
+    pointer-events: none;
+    transition: opacity 150ms ease, transform 150ms ease,
+      visibility 150ms ease;
   }
 
-  .mobile-nav-clip {
-    display: grid;
-    grid-template-rows: 0fr;
+  .menu-open .mobile-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
   }
 
   .mobile-nav-links {
-    overflow: hidden;
-    min-height: 0;
-    padding: 0.25rem 0 0.75rem;
-    visibility: hidden;
-  }
-
-  .menu-open .mobile-nav-clip {
-    grid-template-rows: 1fr;
-  }
-
-  /* Visibility flips instantly on open, and only after the row finishes
-     collapsing on close, so the links stay reachable mid-animation. */
-  .menu-open .mobile-nav-links {
-    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .mobile-link {
-    padding: 0.625rem 0.25rem;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
     font-size: 0.9375rem;
     font-weight: 500;
     color: var(--navy);
     text-decoration: none;
-    border-top: 1px solid #F1F4F9;
+    transition: background-color 120ms ease;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .js-motion .mobile-nav-clip {
-      transition: grid-template-rows 280ms var(--ease-out);
-    }
+  .mobile-link:hover {
+    background: #F1F4F9;
+  }
 
-    .js-motion .mobile-nav-links {
-      transition: visibility 0s linear 280ms;
-    }
-
-    .js-motion .menu-open .mobile-nav-links {
-      transition: visibility 0s;
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav,
+    .menu-open .mobile-nav {
+      transition: none;
     }
   }
 
