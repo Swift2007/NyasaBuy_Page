@@ -23,13 +23,8 @@
     padding: clamp(2.25rem, 6vw, 3.5rem);
     border-radius: var(--r-frame);
     text-align: center;
-    /* Same light field as the final CTA ("Ready to start shopping?"): a flat
-       chip-blue band with two soft #DEEBF7 glows. The #E2EDF9 mid stop keeps
-       body copy at ≥ ≈4.75:1 across the whole band (WCAG AA). */
-    background:
-      radial-gradient(26rem 15rem at 82% -16%, #DEEBF7 0%, rgba(222, 235, 247, 0) 55%),
-      radial-gradient(28rem 16rem at 12% 128%, #DEEBF7 0%, rgba(222, 235, 247, 0) 58%),
-      linear-gradient(170deg, var(--chip) 0%, #E2EDF9 60%, #DEEBF7 100%);
+    /* Flat light field matching the showcase and final CTA — same chip tone, no mesh. */
+    background: var(--chip);
   }
 
   .sell-eyebrow {

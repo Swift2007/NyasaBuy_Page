@@ -1,5 +1,5 @@
 ---
-// Signature showcase: gradient mesh panel with four ARIA-tabbed feature cards.
+// Showcase: four ARIA-tabbed feature cards on a flat light field.
 // Only interactivity: tab switching (script lives in src/pages/index.astro).
 ---
 
@@ -232,13 +232,8 @@
     border-radius: var(--r-panel);
     padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.25rem, 3.5vw, 2.5rem) clamp(1.75rem, 4.5vw, 3rem);
     overflow: hidden;
-    /* Layered radial mesh: light blue glow, mid blue, deep navy corners. */
-    background:
-      radial-gradient(42rem 30rem at 12% 6%, #BBD4F6 0%, rgba(187, 212, 246, 0) 60%),
-      radial-gradient(40rem 30rem at 90% 0%, #5B8DEF 0%, rgba(91, 141, 239, 0) 62%),
-      radial-gradient(48rem 34rem at 88% 100%, #0D1B33 0%, rgba(13, 27, 51, 0) 62%),
-      radial-gradient(44rem 32rem at 6% 96%, #1A4FBF 0%, rgba(26, 79, 191, 0) 58%),
-      linear-gradient(160deg, #A8C4EC 0%, #5B8DEF 48%, #0D1B33 100%);
+    /* Flat light field matching the final CTA ("Ready to start shopping?"). */
+    background: var(--chip);
   }
 
   .tabs {
@@ -386,7 +381,7 @@
     justify-content: center;
     padding: clamp(1.125rem, 2.5vw, 1.75rem);
     border-radius: 20px;
-    background: linear-gradient(180deg, #EAF1FB 0%, #E0EAF9 100%);
+    background: var(--chip);
   }
 
   /* ——— Shared mock-UI pieces (decorative, aria-hidden) ——— */
@@ -513,7 +508,7 @@
 
   .is-selected .radio {
     border-color: var(--accent);
-    background: radial-gradient(circle, var(--accent) 0 4px, transparent 4.5px);
+    background: var(--accent);
   }
 
   .pay-total {
@@ -533,7 +528,7 @@
   /* Delivery mock */
   .mock-map {
     border-radius: 12px;
-    background: linear-gradient(180deg, #DDE9FA 0%, #EBF2FC 100%);
+    background: var(--chip);
     overflow: hidden;
   }
 
