@@ -12,8 +12,7 @@ categories or learn about selling.
 | Hero | Headline, category action, and note that app downloads are coming soon |
 | Showcase | User-selected tabs for four illustrative app screens: Shopping, Payments, Delivery, Sellers |
 | How it works | Three steps: browse, pay your way, receive your order |
-| Categories | Eight static tiles preview the marketplace categories |
-| Featured products | Empty state ("Listings coming soon") until real inventory exists |
+| Categories | Eight category tiles are styled in CSS but no list items render yet — placeholder until the category data exists. |
 | Sell with us | Navy panel pitching sellers: free sign-up, MWK payouts, terms and conditions apply |
 | FAQ | Four questions using the native details/summary accordion |
 | Final CTA | Closing links to category previews and FAQs |
@@ -33,7 +32,7 @@ categories or learn about selling.
 src/
   layouts/Layout.astro      HTML shell, head, fonts, js-motion flag
   pages/index.astro         Page assembly + the one inline script
-  components/               One file per page section
+  components/               One file per page section (Featured products not yet built)
   styles/global.css         Tokens, reset, buttons, reveal system
 public/                     Favicon
 dist/                       Build output (generated)
@@ -86,6 +85,7 @@ without JavaScript always get fully visible, instant-responding content.
 
 ## Placeholders to replace before launch
 
-- Featured products: still the "Listings coming soon" empty state
-- Seller and payment details should be confirmed against the real business model
-- The showcase visibly labels its illustrative app UI; screen data is not live
+- Categories: no category list items render yet — add `<li>` entries to `.cat-list` in `src/components/Categories.astro` when the category data exists.
+- Featured products: not built yet — no component exists for this section; it was dropped from the page assembly until real inventory is ready.
+- Seller and payment details should be confirmed against the real business model.
+- The showcase visibly labels its illustrative app UI; screen data is not live.

@@ -67,7 +67,7 @@
     text-decoration: none;
   }
 
-  /* Same tile geometry as the header mark, lightened for the dark footer. */
+  /* Cart outline and wheels match the header mark, inverted for the dark panel. */
   .brand-mark {
     display: grid;
     place-items: center;
@@ -75,6 +75,14 @@
     height: 36px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
+  }
+
+  .brand-mark svg {
+    stroke: var(--white);
+  }
+
+  .brand-mark circle {
+    fill: var(--white);
   }
 
   .brand-name {
