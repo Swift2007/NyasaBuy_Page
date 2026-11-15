@@ -12,24 +12,50 @@
   </p>
 
   <div class="hero-actions reveal" style="--reveal-delay: 140ms">
-    <a class="btn btn-solid" href="#">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 4.5v9" />
-        <path d="M8.6 10.1 12 13.5l3.4-3.4" />
-        <path d="M5 16.5v1.5c0 .8.7 1.5 1.5 1.5h11c.8 0 1.5-.7 1.5-1.5v-1.5" />
-      </svg>
-      Download the app
-    </a>
+    <a class="btn btn-solid btn-big" id="open-app" href="https://app.nyasabuy.com">Continue in the browser</a>
+    <span class="btn btn-outline btn-soon" aria-disabled="true">Mobile app coming soon</span>
   </div>
-
-  <!-- One download button for now; the stores open with the launch. -->
-  <p class="store-note reveal" style="--reveal-delay: 200ms">Google Play and the App Store are coming soon</p>
-
-  <p class="hero-footnote reveal" style="--reveal-delay: 240ms">
-    <a class="footnote-link" href="#categories">Browse on the website</a>
-    <span class="footnote-sep" aria-hidden="true">•</span>
-  </p>
 </section>
+
+<script is:inline>
+  // Warm the browser cache with the Flutter web app while the visitor reads
+  // this page, so "Continue in the browser" opens fast. app.nyasabuy.com is
+  // the same site as this one, so the cache is shared. The bundle is ~12MB:
+  // it is only fetched when idle on a decent connection, or on first intent
+  // (hover, focus, touch) otherwise.
+  (function () {
+    var BASE = "https://app.nyasabuy.com/";
+    var FILES = [
+      "main.dart.js",
+      "canvaskit/canvaskit.js",
+      "canvaskit/canvaskit.wasm",
+      "flutter_bootstrap.js",
+    ];
+    var done = false;
+    function warm() {
+      if (done) return;
+      done = true;
+      FILES.forEach(function (f) {
+        var l = document.createElement("link");
+        l.rel = "prefetch";
+        l.href = BASE + f;
+        document.head.appendChild(l);
+      });
+    }
+    var c = navigator.connection || {};
+    var ok = !c.saveData && !/(^|-)2g$/.test(c.effectiveType || "");
+    var btn = document.getElementById("open-app");
+    if (btn) {
+      ["pointerenter", "focus", "touchstart"].forEach(function (e) {
+        btn.addEventListener(e, warm, { once: true, passive: true });
+      });
+    }
+    if (ok) {
+      var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 2500); };
+      window.addEventListener("load", function () { idle(warm, { timeout: 4000 }); });
+    }
+  })();
+</script>
 
 <style>
   .hero {
@@ -60,31 +86,16 @@
     margin-top: 2rem;
   }
 
-  /* Store availability note under the single download button. */
-  .store-note {
-    margin-top: 1rem;
-    font-size: 0.8125rem;
-    color: var(--body);
+  .btn-big {
+    padding: 1.125rem 2.5rem;
+    font-size: 1.1875rem;
+    min-width: min(100%, 20rem);
   }
 
-  .hero-footnote {
-    margin-top: 1rem;
-    font-size: 0.8125rem;
-    color: var(--body);
-  }
-
-  .footnote-link {
-    color: var(--navy);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .footnote-link:hover {
-    color: var(--navy-hover);
-  }
-
-  .footnote-sep {
-    margin: 0 0.4em;
+  .btn-soon {
+    cursor: default;
+    opacity: 0.75;
+    pointer-events: none;
   }
 
   /* Below ~660px the forced break no longer fits two 42px lines, so the
