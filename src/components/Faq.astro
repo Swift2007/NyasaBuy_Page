@@ -4,7 +4,7 @@
 const faqs = [
 {
   q: "Do I need a card or bank account to shop?",
-  a: "No. Create an account with your phone number and pay at checkout with Airtel Money, TNM Mpamba or any bank card. Shop freely either way.",
+  a: "No. Create an account with your email or Google, and pay at checkout with Airtel Money, TNM Mpamba or any bank card. Shop freely either way.",
 },
 {
   q: "Is it free to open a shop on NyasaBuy?",
@@ -12,7 +12,7 @@ const faqs = [
 },
 {
   q: "When do I receive my money?",
-  a: "Earnings for delivered orders are paid to your Airtel Money or TNM Mpamba wallet on your payout schedule. You can see exactly what cleared in your seller dashboard.",
+  a: "Once a buyer confirms their order arrived, the money becomes available in your seller dashboard. Tap Withdraw and it is sent to your Airtel Money or TNM Mpamba wallet.",
 },
 ];
 ---
@@ -34,6 +34,11 @@ const faqs = [
       </details>
     ))}
   </div>
+
+  <p class="faq-more reveal">
+    <a href="/help/faq">More questions and answers</a> or visit the{" "}
+    <a href="/help">Help centre</a>.
+  </p>
 </section>
 
 <style>
@@ -130,5 +135,21 @@ const faqs = [
     margin-top: 0.625rem;
     font-size: 0.9375rem;
     color: var(--body);
+  }
+
+  .faq-more {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.9375rem;
+  }
+
+  .faq-more a {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .faq-more a:hover {
+    color: var(--navy);
   }
 </style>

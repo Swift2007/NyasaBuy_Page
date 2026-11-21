@@ -1,0 +1,138 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import Steps from "../../components/help/Steps.astro";
+import Callout from "../../components/help/Callout.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const sections = [
+  { id: "signup", label: "Signing up" },
+  { id: "profile", label: "Your profile" },
+  { id: "password", label: "Forgot your password?" },
+  { id: "notifications", label: "Notifications" },
+  { id: "privacy", label: "Privacy" },
+  { id: "delete", label: "Deleting your account" },
+];
+---
+
+<Page
+  title="Your account and privacy"
+  description="Signing up, your profile, resetting a password, notifications, who can see when you are online, and deleting your account."
+>
+  <GuideHeader
+    title="Your account and privacy"
+    intro="Signing in, your profile and notifications, and who can see what about you."
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="signup">
+      <h2>Signing up</h2>
+      <p>
+        You can use NyasaBuy in your phone or computer's browser at{" "}
+        <a href="https://app.nyasabuy.com">app.nyasabuy.com</a>. A mobile app is
+        coming soon. There are two ways to create an account:
+      </p>
+      <ul>
+        <li><strong>Continue with Google</strong>, with one tap</li>
+        <li><strong>Email and password</strong>. We email you a 6-digit code, and you type it in to confirm your address.</li>
+      </ul>
+      <p>
+        Signing up is free, and you do not need a card or a bank account.
+        After that, choose a display name and a username. Your username can
+        use letters, numbers and underscores, 3 to 30 characters, with no
+        spaces.
+      </p>
+      <Callout title="Didn't get your code?" tone="good">
+        <p>
+          Check your spam folder, then tap <strong>Resend code</strong> on the
+          confirmation screen. You can ask for a new one after a minute.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="profile">
+      <h2>Your profile</h2>
+      <p>
+        Open <strong>Profile</strong> to change your name, username and photo.
+        Sellers also keep their business details here: business name, phone
+        number, location and payout details. Keep your phone number and mobile
+        money provider correct, because that is where your withdrawals go.
+      </p>
+    </section>
+
+    <section id="password">
+      <h2>Forgot your password?</h2>
+      <Steps
+        items={[
+          {
+            title: "Tap Forgot password?",
+            body: "On the sign-in screen, then enter your email address.",
+          },
+          {
+            title: "Enter the 6-digit code",
+            body: "We email you a code. Type it in with your new password.",
+          },
+          {
+            title: "Sign in",
+            body: "Use your new password. You can also start a reset any time from Privacy & Security.",
+          },
+        ]}
+      />
+    </section>
+
+    <section id="notifications">
+      <h2>Notifications</h2>
+      <p>
+        You are notified when a seller replies, when your payment goes through,
+        and when an order changes, so you do not have to keep checking. Past
+        alerts are kept in your notifications, even if you missed them.
+      </p>
+      <ul>
+        <li><strong>In a browser:</strong> open your notifications and tap <strong>Turn on</strong>, then allow notifications when your browser asks. You will then hear about orders and messages even when the tab is closed.</li>
+        <li><strong>In the mobile app (coming soon):</strong> allow notifications when asked.</li>
+      </ul>
+      <Callout title="Blocked them by mistake?" tone="good">
+        <p>
+          You can allow notifications for NyasaBuy again in your browser's site
+          settings. On an iPhone, add NyasaBuy to your Home Screen first.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="privacy">
+      <h2>Privacy</h2>
+      <p>
+        In <strong>Privacy &amp; Security</strong> you can choose whether
+        people can see when you are online.
+      </p>
+      <ul>
+        <li><strong>On (the default):</strong> people you chat with, and buyers viewing your listings, see a green dot and "Online", or when you were last seen.</li>
+        <li><strong>Off:</strong> nobody sees your status. Fair is fair, so you will not see anyone else's either.</li>
+      </ul>
+      <p>
+        Your messages are only visible to you and the person you are chatting
+        with. If a problem is reported, our team can read the recent messages to
+        help sort it out.
+      </p>
+    </section>
+
+    <section id="delete">
+      <h2>Deleting your account</h2>
+      <p>
+        You can delete your account from <strong>Privacy &amp; Security</strong>.
+        Your login is removed and your profile is anonymised, so your name no
+        longer appears.
+      </p>
+      <Callout title="Not while orders are in progress" tone="safety">
+        <p>
+          You cannot delete your account while you have paid orders that are not
+          finished yet. Once they are complete, you can.
+        </p>
+      </Callout>
+    </section>
+
+    <RelatedGuides current="your-account" />
+  </article>
+</Page>

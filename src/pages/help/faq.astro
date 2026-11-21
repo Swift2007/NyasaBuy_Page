@@ -1,0 +1,188 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import FaqGroups from "../../components/help/FaqGroups.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const groups = [
+  {
+    id: "started",
+    title: "Getting started",
+    items: [
+      {
+        q: "Do I need a card or bank account to shop?",
+        a: "No. Create an account, and pay with Airtel Money, TNM Mpamba or a bank card, whichever you have.",
+      },
+      {
+        q: "Do I need to install an app?",
+        a: 'No. NyasaBuy works in your phone or computer\'s browser at <a href="https://app.nyasabuy.com">app.nyasabuy.com</a>. A mobile app is coming soon.',
+      },
+      {
+        q: "How do I sign up?",
+        a: "Continue with Google, or use your email and a password. If you use email, we send you a 6-digit code to confirm it.",
+      },
+      {
+        q: "Is NyasaBuy free?",
+        a: "Joining, browsing and opening a shop are free. Buyers pay the price of the item, plus the delivery fee if they choose delivery. Sellers pay a small fee from each sale, and can choose to boost a listing for an extra fee shown before they pay.",
+      },
+    ],
+  },
+  {
+    id: "buying",
+    title: "Buying",
+    items: [
+      {
+        q: "Why do I message the seller before paying?",
+        a: "So you know the item is still available and, for a delivery, how many days it will take, before any money moves. Tap Buy now, and a message is ready for you to send. <a href=\"/help/buying\">See how buying works</a>.",
+      },
+      {
+        q: "How long do I have to pay after the seller confirms?",
+        a: "48 hours. Once you start paying, the item is held for you for about 30 minutes.",
+      },
+      {
+        q: "Can I buy from several sellers at once?",
+        a: "Yes. Put items in your cart and tap Check out. Each seller is asked if their item is available. You can pay for each item as it is confirmed, or pay for everything together once all of them are.",
+      },
+      {
+        q: "Can I negotiate the price?",
+        a: "If the seller marked it negotiable, tap Make an offer in the chat. If they accept, you have 48 hours to pay that price.",
+      },
+      {
+        q: "What if the item sells before I pay?",
+        a: "You are told that it is no longer available and you are not charged. If a payment ever arrives after an item has gone, it is refunded.",
+      },
+      {
+        q: "Can I edit or delete a message?",
+        a: "You can edit a message within 15 minutes of sending it, and it will show as edited. Messages cannot be deleted, so there is always a record if something goes wrong.",
+      },
+    ],
+  },
+  {
+    id: "selling",
+    title: "Selling",
+    items: [
+      {
+        q: "How do I start selling?",
+        a: 'Open your profile and choose Become a seller. Add your business name, phone number, location and what you sell, and you can start listing. <a href="/help/selling">Read the selling guide</a>.',
+      },
+      {
+        q: "How much does NyasaBuy charge?",
+        a: "A small fee is taken from each sale. Your seller dashboard always shows your earnings after that fee, so you can see exactly what is yours.",
+      },
+      {
+        q: "When do I get my money?",
+        a: "A sale shows as Pending until the buyer confirms they received the item (or the order completes on its own). It then becomes Available, and you tap Withdraw to send it to your Airtel Money or TNM Mpamba wallet.",
+      },
+      {
+        q: "Is there a minimum withdrawal?",
+        a: "Yes, a small minimum applies. The app shows it when you withdraw.",
+      },
+      {
+        q: "Why are my withdrawals paused?",
+        a: "If you change your payout phone number or mobile money provider, withdrawals pause for about 24 hours. It is a safety step in case someone else got into your account.",
+      },
+      {
+        q: "How many photos can I add?",
+        a: "Up to four for each listing.",
+      },
+      {
+        q: "Can I hide a listing without deleting it?",
+        a: "Yes. Open the listing's Edit screen and choose Withdraw listing. It disappears from search and your public profile, and you can put it back on sale whenever you like.",
+      },
+      {
+        q: "Can I ask buyers to pay me directly?",
+        a: "No. Never ask buyers to pay outside the app. Only payments made in the app are protected, and sellers who take buyers away from the app can have their listings removed or their account suspended.",
+      },
+    ],
+  },
+  {
+    id: "payments",
+    title: "Payments and safety",
+    items: [
+      {
+        q: "Which payment methods can I use?",
+        a: "Airtel Money, TNM Mpamba and bank cards.",
+      },
+      {
+        q: "Is my money safe?",
+        a: "When you pay in the app, the seller does not receive your money until you confirm your order arrived, or the confirmation time runs out. If there is a problem, you can report it first. <a href=\"/help/payments-and-safety\">Read more about staying safe</a>.",
+      },
+      {
+        q: "A seller asked me to pay outside the app. What should I do?",
+        a: "Do not pay. Only payments made in the app are protected. Report them from the ⋯ menu in the chat, choosing “Asked me to pay outside the app”.",
+      },
+      {
+        q: "What if my item never arrives?",
+        a: "Tap Not arrived yet to give the seller more time, or open the order and tap Report a problem. Our team looks at the order and the messages, and refunds you if you were let down.",
+      },
+    ],
+  },
+  {
+    id: "orders",
+    title: "Orders and delivery",
+    items: [
+      {
+        q: "How long will delivery take?",
+        a: "Each seller sets this and tells you before you pay. It is always at least 2 days, counted from the day you pay, and your order shows the date it is promised by.",
+      },
+      {
+        q: "Can I collect the item myself?",
+        a: "Yes, choose Pickup. There is no delivery fee. Arrange a time and place with the seller in the chat.",
+      },
+      {
+        q: "When is an order complete?",
+        a: "When you tap Received. If you do nothing, it completes on its own a few days after the promised delivery date. Report a problem before then if something is wrong.",
+      },
+      {
+        q: "Can I cancel an order?",
+        a: "You can cancel an order you have not paid for. Once you have paid, report a problem if something is wrong, and our team will help.",
+      },
+    ],
+  },
+  {
+    id: "privacy",
+    title: "Your account and privacy",
+    items: [
+      {
+        q: "Who can see when I am online?",
+        a: "People you chat with, and buyers viewing your listings, see a green dot or when you were last seen. You can turn this off in Privacy & Security. If you do, you will not see anyone else's status either.",
+      },
+      {
+        q: "How do I report someone?",
+        a: "Open the chat, tap the ⋯ menu, then Report. Choose a reason and add details. The other person is not told it was you.",
+      },
+      {
+        q: "How do I delete my account?",
+        a: "Go to Privacy & Security and choose Delete account. It is not possible while you have paid orders that are not finished.",
+      },
+    ],
+  },
+];
+
+const jump = groups.map((g) => ({ id: g.id, label: g.title }));
+---
+
+<Page
+  title="Common questions"
+  description="Quick answers to the questions people ask most about buying, selling, paying safely and delivery on NyasaBuy."
+>
+  <GuideHeader
+    title="Common questions"
+    intro="Short answers to what people ask most. Need more detail? Each answer links to a full guide."
+  />
+  <GuideNav items={jump} />
+
+  <FaqGroups groups={groups} />
+
+  <div class="faq-related">
+    <RelatedGuides current="faq" />
+  </div>
+</Page>
+
+<style>
+  .faq-related {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+// Grouped questions and answers, as native details/summary accordions (no
+// JavaScript). Answers may contain simple HTML, such as a link to a guide.
+interface Group {
+  id: string;
+  title: string;
+  items: { q: string; a: string }[];
+}
+
+interface Props {
+  groups: Group[];
+}
+
+const { groups } = Astro.props;
+---
+
+{groups.map((group) => (
+  <section class="faq-group" id={group.id} aria-labelledby={`${group.id}-title`}>
+    <h2 id={`${group.id}-title`}>{group.title}</h2>
+    <div class="faq-list">
+      {group.items.map((item) => (
+        <details class="faq-item">
+          <summary>
+            <span class="faq-q">{item.q}</span>
+            <svg class="faq-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 6.5 5 4.5 5-4.5" /></svg>
+          </summary>
+          <p class="faq-a" set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </section>
+))}
+
+<style>
+  .faq-group {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3.5vw, 2rem) 0;
+    scroll-margin-top: 1rem;
+  }
+
+  .faq-group h2 {
+    font-size: clamp(1.25rem, 2.3vw, 1.5rem);
+    font-weight: 700;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 0.625rem;
+    margin-top: 1rem;
+  }
+
+  .faq-item {
+    padding: 1rem 1.25rem;
+    border: 1px solid #EEF1F6;
+    border-radius: var(--r-card);
+    background: var(--white);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-q {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--navy);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-chevron {
+      transition: transform 200ms var(--ease-out);
+    }
+  }
+
+  .faq-a {
+    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  .faq-a :global(a) {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

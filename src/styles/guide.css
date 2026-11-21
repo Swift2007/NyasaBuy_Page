@@ -1,0 +1,104 @@
+/* Shared look for the Help centre: the page header, the jump links and the
+   long-form reading column. Colours and radii come from global.css tokens. */
+
+.guide-head {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) 0 clamp(1rem, 3vw, 1.5rem);
+  text-align: center;
+}
+
+.guide-crumbs {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.guide-crumbs a {
+  color: var(--body);
+  text-decoration: none;
+}
+
+.guide-crumbs a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+.guide-crumbs span {
+  margin: 0 0.4em;
+  color: #A7B0C4;
+}
+
+.guide-head h1 {
+  margin-top: 0.875rem;
+  font-size: clamp(2rem, 4.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.guide-intro {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+/* The reading column. */
+.guide {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.guide > section {
+  padding: clamp(1.5rem, 4vw, 2.25rem) 0;
+  border-top: 1px solid #EEF1F6;
+  /* Jump links land with the heading clear of the top edge. */
+  scroll-margin-top: 1rem;
+}
+
+.guide h2 {
+  font-size: clamp(1.25rem, 2.3vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.guide h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.guide p {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.guide ul,
+.guide ol:not(.steps-list) {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.875rem 0 0;
+  padding-left: 1.25rem;
+  line-height: 1.65;
+}
+
+.guide strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.guide a:not(.btn):not(.guide-card) {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.guide a:not(.btn):not(.guide-card):hover {
+  color: var(--navy);
+}
+
+.guide .table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+}

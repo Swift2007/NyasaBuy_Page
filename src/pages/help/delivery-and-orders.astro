@@ -1,0 +1,140 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import Callout from "../../components/help/Callout.astro";
+import Steps from "../../components/help/Steps.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const sections = [
+  { id: "choose", label: "Pickup or delivery" },
+  { id: "time", label: "The delivery time" },
+  { id: "track", label: "Following your order" },
+  { id: "confirm", label: "Confirming it arrived" },
+  { id: "late", label: "If it is late" },
+  { id: "problem", label: "If something is wrong" },
+  { id: "unpaid", label: "Unpaid orders" },
+];
+---
+
+<Page
+  title="Delivery and your orders"
+  description="Pickup or delivery, the delivery time sellers promise, tracking an order, confirming it arrived and what to do if it is late."
+>
+  <GuideHeader
+    title="Delivery and your orders"
+    intro="How getting your item works, and what to do if it does not go to plan."
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="choose">
+      <h2>Pickup or delivery</h2>
+      <p>
+        When you pay, choose how you want to get your item. If a seller
+        delivers, you will see <strong>Delivery</strong> next to{" "}
+        <strong>Pickup</strong>.
+      </p>
+      <ul>
+        <li><strong>Pickup:</strong> no extra cost. Arrange a time and place with the seller in the chat.</li>
+        <li><strong>Delivery:</strong> the seller sends it to you. Their delivery fee is shown before you pay, and added to the total.</li>
+      </ul>
+      <p>You can change between the two in the cart or on the pay screen, before you pay.</p>
+    </section>
+
+    <section id="time">
+      <h2>The delivery time</h2>
+      <p>
+        For a delivery, the seller tells you how many days it will take{" "}
+        <strong>before you pay</strong>. It is always <strong>at least 2
+        days</strong>, and it is counted from the day you pay. You agree to it
+        by paying.
+      </p>
+      <p>
+        Once you have paid, your order shows <strong>Delivery promised
+        by</strong> and the date, so you always know what to expect.
+      </p>
+    </section>
+
+    <section id="track">
+      <h2>Following your order</h2>
+      <p>Open the <strong>Orders</strong> tab to see all your orders. Each one shows where it stands:</p>
+      <ul>
+        <li><strong>Pending:</strong> paid, and the seller is getting it ready</li>
+        <li><strong>On its way / Delivered:</strong> the seller has sent it or handed it over</li>
+        <li><strong>Completed:</strong> you confirmed it arrived</li>
+        <li><strong>Disputed:</strong> a problem was reported, and our team is looking into it</li>
+        <li><strong>Refunded, Cancelled or Expired:</strong> the order ended without a sale</li>
+      </ul>
+      <p>
+        You are also notified about each step, and you can open the chat with
+        the seller from any order.
+      </p>
+    </section>
+
+    <section id="confirm">
+      <h2>Confirming it arrived</h2>
+      <p>
+        When your item arrives and looks right, open the order and tap{" "}
+        <strong>Received</strong>. You will be asked to confirm, because
+        confirming pays the seller. Then you can leave them a rating.
+      </p>
+      <Callout title="Do not forget to confirm" tone="safety">
+        <p>
+          If you neither confirm nor report a problem, the order completes on
+          its own a few days after the promised delivery date, and the seller is
+          paid. Check your item soon after it arrives.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="late">
+      <h2>If it is late</h2>
+      <p>
+        The seller says they sent it, but it has not reached you? Open the
+        order and tap <strong>Not arrived yet</strong>.
+      </p>
+      <ul>
+        <li>The seller is told to check on your delivery.</li>
+        <li>The order waits 4 more days before it can complete on its own.</li>
+        <li>You can do this up to two times. After that, report a problem if it still has not arrived.</li>
+      </ul>
+    </section>
+
+    <section id="problem">
+      <h2>If something is wrong</h2>
+      <p>
+        The item never came, is not what was described, or is damaged? Open the
+        order and tap <strong>Report a problem</strong>. Describe what happened
+        in a sentence or two.
+      </p>
+      <Steps
+        items={[
+          {
+            title: "You report it",
+            body: "The order is marked as disputed, so the seller is not paid while it is looked at.",
+          },
+          {
+            title: "Our team reviews it",
+            body: "We read your report, the order details and the recent messages between you and the seller.",
+          },
+          {
+            title: "We decide",
+            body: "If you were let down, the order is refunded. If the seller did everything right, the order is completed in their favour.",
+          },
+        ]}
+      />
+    </section>
+
+    <section id="unpaid">
+      <h2>Unpaid orders</h2>
+      <ul>
+        <li>When you start to pay, the item is held for you for about 30 minutes. If the payment is not completed, it is released for other buyers.</li>
+        <li>You can have up to three unpaid orders open at the same time.</li>
+        <li>An order you have not paid for can be cancelled at any time from your Orders.</li>
+      </ul>
+    </section>
+
+    <RelatedGuides current="delivery-and-orders" />
+  </article>
+</Page>

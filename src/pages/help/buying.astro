@@ -1,0 +1,177 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import Steps from "../../components/help/Steps.astro";
+import Callout from "../../components/help/Callout.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const sections = [
+  { id: "find", label: "Find something" },
+  { id: "check", label: "Check the listing" },
+  { id: "how", label: "How buying works" },
+  { id: "negotiate", label: "Negotiating a price" },
+  { id: "cart", label: "Using the cart" },
+  { id: "chat", label: "Chatting with sellers" },
+];
+---
+
+<Page
+  title="Buying on NyasaBuy"
+  description="How to find an item, ask the seller, pay safely in the app and receive your order on NyasaBuy."
+>
+  <GuideHeader
+    title="Buying on NyasaBuy"
+    intro="From finding something you like to holding it in your hands. Here is how it works, step by step."
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="find">
+      <h2>Find something</h2>
+      <p>
+        Use the search bar, or browse by category on the home page. Too many
+        results? Tap <strong>Filters</strong> to narrow them down by:
+      </p>
+      <ul>
+        <li>Price range</li>
+        <li>Condition: brand new or fairly used</li>
+        <li>Location</li>
+        <li>Whether the seller can deliver</li>
+        <li>Whether the price is negotiable</li>
+      </ul>
+      <p>
+        You can also sort by newest or by price. Tap the <strong>heart</strong>{" "}
+        on any listing to save it to your wishlist, and share a listing with a
+        friend using its link.
+      </p>
+    </section>
+
+    <section id="check">
+      <h2>Check the listing and the seller</h2>
+      <p>
+        Each listing shows up to four photos, the description, the condition,
+        the price and where the item is. Tap the seller's name to see their
+        other listings and what other buyers have said about them.
+      </p>
+      <p>
+        A green dot and <strong>Online</strong> means the seller is using the
+        app right now. Otherwise you will see when they were last around.
+        Sellers can switch this off if they prefer.
+      </p>
+    </section>
+
+    <section id="how">
+      <h2>How buying works</h2>
+      <p>
+        Buying on NyasaBuy starts with a quick chat, so you know the item is
+        still there before you pay.
+      </p>
+      <Steps
+        items={[
+          {
+            title: "Tap Buy now",
+            body: "Your chat with the seller opens with a message already written: “Hi, I'm interested in this product… Is it still available?” Change it if you like, then send it.",
+          },
+          {
+            title: "The seller confirms",
+            body: "They tell you the item is available. If they deliver, they also say how many days delivery will take. You get a notification when they reply.",
+          },
+          {
+            title: "Tap Pay now",
+            body: "You will see the price, the quantity and, for a delivery, the delivery time the seller agreed to. If both are offered, choose pickup or delivery.",
+          },
+          {
+            title: "Pay in the app",
+            body: "Pay with Airtel Money, TNM Mpamba or your card on the secure payment page. A receipt appears in your chat as soon as it goes through.",
+          },
+          {
+            title: "Receive it and tap Received",
+            body: "When your order arrives, confirm it. The seller is then paid, and you can rate them.",
+          },
+        ]}
+      />
+      <Callout title="Why chat first?">
+        <p>
+          So you never pay for something that has already been sold, and so the
+          delivery time is agreed <em>before</em> you pay, not after.
+        </p>
+      </Callout>
+      <Callout title="Good to know" tone="good">
+        <ul>
+          <li>A seller's confirmation stays open for 48 hours. After that, just ask again.</li>
+          <li>Once you start paying, the item is held for you for about 30 minutes.</li>
+          <li>Buying more than one? The seller confirms the quantity with you in the chat.</li>
+        </ul>
+      </Callout>
+    </section>
+
+    <section id="negotiate">
+      <h2>Negotiating a price</h2>
+      <p>
+        Some sellers mark their price as <strong>negotiable</strong>. In the
+        chat, tap <strong>Make an offer</strong> and enter an amount below the
+        asking price.
+      </p>
+      <ul>
+        <li>The seller can accept or decline. They are asked to confirm before accepting.</li>
+        <li>If they accept, you have 48 hours to pay that price.</li>
+        <li>You can have one offer open at a time, and you can withdraw it.</li>
+      </ul>
+    </section>
+
+    <section id="cart">
+      <h2>Using the cart</h2>
+      <p>
+        The cart is a place to <strong>hold items</strong> while you shop,
+        including items from different sellers. You can keep up to 20 listings
+        in it.
+      </p>
+      <Steps
+        items={[
+          {
+            title: "Add items",
+            body: "Tap Add to cart on any listing. In the cart you can change the quantity and choose pickup or delivery for each item.",
+          },
+          {
+            title: "Tap Check out",
+            body: "Each seller receives your “Is it still available?” message in their own chat.",
+          },
+          {
+            title: "Watch them confirm",
+            body: "Each item shows “Waiting for the seller”, then “Seller confirmed” as they reply.",
+          },
+          {
+            title: "Pay",
+            body: "Pay for a confirmed item straight away with Pay now, or wait until every seller has confirmed and pay for everything in one go.",
+          },
+        ]}
+      />
+      <Callout title="Good to know" tone="good">
+        <p>
+          Items in your cart are not reserved for you. An item is held only once
+          its seller confirms and you start paying.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="chat">
+      <h2>Chatting with sellers</h2>
+      <ul>
+        <li>Ask anything before you buy: sizes, condition, where to collect.</li>
+        <li>Made a typo? You can edit a message within 15 minutes of sending it. It then shows as <em>edited</em>.</li>
+        <li>Messages cannot be deleted, so our team can look at them if something goes wrong.</li>
+        <li>Something does not feel right? Use the <strong>⋯</strong> menu in the chat to report the other person.</li>
+      </ul>
+      <Callout title="Keep payments in the app" tone="safety">
+        <p>
+          Never agree to pay by Airtel Money, TNM Mpamba, bank transfer or cash
+          sent in advance. Only payments made in the app are protected.{" "}
+          <a href="/help/payments-and-safety">Read how to stay safe</a>.
+        </p>
+      </Callout>
+    </section>
+
+    <RelatedGuides current="buying" />
+  </article>
+</Page>

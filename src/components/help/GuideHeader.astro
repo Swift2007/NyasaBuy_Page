@@ -1,0 +1,17 @@
+---
+// The top of a guide: where you are, the title, and one friendly sentence.
+interface Props {
+  title: string;
+  intro: string;
+}
+
+const { title, intro } = Astro.props;
+---
+
+<header class="guide-head reveal">
+  <p class="guide-crumbs">
+    <a href="/help">Help centre</a><span aria-hidden="true">/</span>{title}
+  </p>
+  <h1>{title}</h1>
+  <p class="guide-intro">{intro}</p>
+</header>

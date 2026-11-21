@@ -1,0 +1,164 @@
+---
+import Page from "../../layouts/Page.astro";
+import { guides } from "../../data/guides";
+import GuideIcon from "../../components/help/GuideIcon.astro";
+---
+
+<Page
+  title="Help centre"
+  description="How NyasaBuy works: buying, selling, paying safely, delivery and your account, explained simply."
+>
+  <header class="hub-head reveal">
+    <h1>How can we help?</h1>
+    <p>
+      Short, plain guides to everything you can do on NyasaBuy. Pick a topic to
+      get started.
+    </p>
+  </header>
+
+  <ul class="hub-grid">
+    {guides.map((g, i) => (
+      <li class="reveal" style={`--reveal-delay: ${i * 60}ms`}>
+        <a class="hub-card" href={`/help/${g.slug}`}>
+          <span class="hub-icon"><GuideIcon name={g.icon} /></span>
+          <span class="hub-title">{g.title}</span>
+          <span class="hub-blurb">{g.blurb}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <section class="quick reveal" aria-labelledby="quick-heading">
+    <h2 id="quick-heading">The short version</h2>
+    <ol>
+      <li><strong>Find</strong> something you like and tap Buy now.</li>
+      <li><strong>Ask</strong> the seller. A message is ready for you, and they confirm it is available.</li>
+      <li><strong>Pay in the app</strong> with Airtel Money, TNM Mpamba or card. Only payments made in the app are protected.</li>
+      <li><strong>Receive it</strong> and tap Received. Then the seller is paid.</li>
+    </ol>
+  </section>
+
+  <p class="hub-foot">
+    Can't find your answer? <a href="/#cta">Contact us</a> and we will help.
+  </p>
+</Page>
+
+<style>
+  .hub-head {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(2.25rem, 7vw, 4rem) 0 clamp(1.5rem, 4vw, 2.25rem);
+    text-align: center;
+  }
+
+  .hub-head h1 {
+    font-size: clamp(2.125rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .hub-head p {
+    margin-top: 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hub-card {
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+    height: 100%;
+    padding: clamp(1.125rem, 2.5vw, 1.5rem);
+    border-radius: var(--r-card);
+    background: #FAFBFD;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+  }
+
+  .hub-card:hover {
+    background: var(--chip);
+  }
+
+  .hub-icon {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    background: #DEEBF7;
+    color: var(--navy);
+  }
+
+  .hub-title {
+    margin-top: 0.25rem;
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .hub-blurb {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--body);
+  }
+
+  .quick {
+    max-width: 760px;
+    margin: clamp(2rem, 5vw, 3rem) auto 0;
+    padding: clamp(1.25rem, 3.5vw, 2rem);
+    border-radius: var(--r-frame);
+    background: var(--chip);
+  }
+
+  .quick h2 {
+    font-size: clamp(1.25rem, 2.3vw, 1.5rem);
+  }
+
+  .quick ol {
+    display: grid;
+    gap: 0.625rem;
+    margin: 0.875rem 0 0;
+    padding-left: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .quick strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .hub-foot {
+    margin-top: clamp(1.5rem, 4vw, 2.25rem);
+    text-align: center;
+    font-size: 0.9375rem;
+  }
+
+  .hub-foot a {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 859px) {
+    .hub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 559px) {
+    .hub-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

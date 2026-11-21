@@ -3,13 +3,18 @@
 const steps = [
   {
     num: "01",
-    title: "Browse the shop",
-    body: "Search or scroll through thousands of listings from trusted sellers across Malawi.",
+    title: "Find something you like",
+    body: "Search or scroll through listings from sellers across Malawi, and save favourites for later.",
   },
   {
     num: "02",
-    title: "Pay your way",
-    body: "Check out with Airtel Money, TNM Mpamba or your card. Your money stays protected until delivery.",
+    title: "Ask the seller",
+    body: "A message is ready for you. The seller confirms the item is available, and for a delivery, how long it will take.",
+  },
+  {
+    num: "03",
+    title: "Pay in the app",
+    body: "Pay with Airtel Money, TNM Mpamba or card. Your money is protected until your order arrives.",
   },
 ];
 ---
@@ -17,7 +22,7 @@ const steps = [
 <section class="how-it-works" id="how-it-works" aria-labelledby="how-it-works-heading">
   <div class="section-head reveal">
     <h2 id="how-it-works-heading">How NyasaBuy works</h2>
-    <p class="section-intro">From browsing to your doorstep in two simple steps.</p>
+    <p class="section-intro">From browsing to your doorstep in three simple steps.</p>
   </div>
 
   <ul class="steps">
@@ -30,6 +35,10 @@ const steps = [
       </li>
     ))}
   </ul>
+
+  <p class="guide-link reveal">
+    <a href="/help/buying">See the full guide to buying</a>
+  </p>
 </section>
 
 <style>
@@ -56,7 +65,7 @@ const steps = [
 
   .steps {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     list-style: none;
     padding: 0;
@@ -93,8 +102,25 @@ const steps = [
     color: var(--body);
   }
 
-  /* Steps hold 3-up until 640px, then stack. */
-  @media (max-width: 639px) {
+  .guide-link {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .guide-link a {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .guide-link a:hover {
+    color: var(--navy);
+  }
+
+  /* Steps hold 3-up until 700px, then stack. */
+  @media (max-width: 699px) {
     .steps {
       grid-template-columns: 1fr;
     }

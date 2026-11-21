@@ -1,0 +1,100 @@
+---
+// "Keep reading": the other guides, as cards, minus the one you are on.
+import { guides } from "../../data/guides";
+import GuideIcon from "./GuideIcon.astro";
+
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+const others = guides.filter((g) => g.slug !== current);
+---
+
+<section class="related" aria-labelledby="related-heading">
+  <h2 id="related-heading">Keep reading</h2>
+  <ul>
+    {others.map((g) => (
+      <li>
+        <a class="guide-card" href={`/help/${g.slug}`}>
+          <span class="icon"><GuideIcon name={g.icon} /></span>
+          <span class="card-title">{g.title}</span>
+          <span class="card-blurb">{g.blurb}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .related {
+    margin-top: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+    border-top: 1px solid #EEF1F6;
+  }
+
+  .related h2 {
+    font-size: clamp(1.25rem, 2.3vw, 1.5rem);
+    text-align: center;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .guide-card {
+    display: grid;
+    gap: 0.375rem;
+    height: 100%;
+    padding: 1.125rem;
+    border-radius: var(--r-card);
+    background: #FAFBFD;
+    text-decoration: none;
+    transition: background-color 150ms ease, transform 150ms var(--ease-out);
+  }
+
+  .guide-card:hover {
+    background: var(--chip);
+  }
+
+  .icon {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 10px;
+    background: #DEEBF7;
+    color: var(--navy);
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .card-blurb {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--body);
+  }
+
+  @media (max-width: 859px) {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 559px) {
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

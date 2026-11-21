@@ -1,0 +1,71 @@
+---
+// The shell for inner pages (the Help centre): the same frame, header and
+// footer as the landing page, with just the small script the menu and the
+// scroll-in effect need.
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/guide.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={`${title} | NyasaBuy Help`} description={description}>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-frame">
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+
+  <script is:inline>
+    // Mobile menu: aria-expanded is the source of truth, .menu-open drives
+    // the drawer animation, Escape closes it and returns focus to the button.
+    const menuBtn = document.querySelector("[data-menu-toggle]");
+    const menuHeader = menuBtn ? menuBtn.closest(".site-header") : null;
+    if (menuBtn && menuHeader) {
+      const setMenu = (open) => {
+        menuBtn.setAttribute("aria-expanded", String(open));
+        menuHeader.classList.toggle("menu-open", open);
+      };
+      menuBtn.addEventListener("click", () => {
+        setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+      });
+      menuHeader.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => setMenu(false));
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+          setMenu(false);
+          menuBtn.focus();
+        }
+      });
+    }
+
+    // One-shot scroll reveal, skipped (content simply shown) without support.
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px" }
+      );
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add("in-view"));
+    }
+  </script>
+</Layout>

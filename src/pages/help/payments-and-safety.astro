@@ -1,0 +1,152 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import Callout from "../../components/help/Callout.astro";
+import Steps from "../../components/help/Steps.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const sections = [
+  { id: "pay", label: "How to pay" },
+  { id: "app-only", label: "Pay only in the app" },
+  { id: "protected", label: "How you are protected" },
+  { id: "scams", label: "Spotting scams" },
+  { id: "report", label: "Reporting a problem" },
+];
+---
+
+<Page
+  title="Payments and staying safe"
+  description="How payments on NyasaBuy work, how your money is protected until your order arrives, and how to spot and report scams."
+>
+  <GuideHeader
+    title="Payments and staying safe"
+    intro="How paying works, how your money is protected, and what to watch out for."
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="pay">
+      <h2>How to pay</h2>
+      <p>
+        You can pay with <strong>Airtel Money</strong>,{" "}
+        <strong>TNM Mpamba</strong> or a <strong>bank card</strong>. You do not
+        need a bank account to shop.
+      </p>
+      <p>
+        When you tap <strong>Pay</strong>, a secure payment page opens. Choose
+        how you want to pay and follow the steps. When you are done, you come
+        back to NyasaBuy, and a receipt with your payment reference appears in
+        your chat with the seller.
+      </p>
+      <Callout title="Paid but nothing changed?" tone="good">
+        <p>
+          Give it a minute and refresh your Orders. A payment is confirmed once
+          your mobile money provider or bank confirms it. If it still does not
+          show, <a href="/#cta">contact us</a> with your payment reference.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="app-only">
+      <h2>Pay only in the app</h2>
+      <Callout title="The one rule that keeps you safe" tone="safety">
+        <p>
+          <strong>Only payments made in the app are protected.</strong> Never
+          send money by Airtel Money, TNM Mpamba, bank transfer or cash in
+          advance, even if the seller asks, offers a discount for it, or says
+          the app is slow.
+        </p>
+      </Callout>
+      <p>
+        If you pay outside the app, NyasaBuy cannot help you get your money
+        back if the item never arrives, because we never saw the payment. It
+        also means the seller is going around the rules that protect you.
+      </p>
+      <p>
+        If someone asks you to pay outside the app,{" "}
+        <strong>do not</strong>. Report them from the <strong>⋯</strong> menu
+        in your chat.
+      </p>
+    </section>
+
+    <section id="protected">
+      <h2>How you are protected</h2>
+      <p>When you pay in the app, your money is looked after until you have your order.</p>
+      <Steps
+        items={[
+          {
+            title: "You pay",
+            body: "The money is taken safely through the app. The seller is told, but does not receive it yet.",
+          },
+          {
+            title: "The seller sends your order",
+            body: "They hand it over or deliver it within the time they agreed with you.",
+          },
+          {
+            title: "You confirm you received it",
+            body: "Tap Received, and the seller is paid. If you do nothing, the order completes by itself after the confirmation window, so check your orders.",
+          },
+        ]}
+      />
+      <p>
+        If something is wrong, you can ask for more time or report a problem
+        before you confirm. Our team looks at the order and the recent messages,
+        and if you were let down, you are refunded.{" "}
+        <a href="/help/delivery-and-orders">See what to do if an order is late</a>.
+      </p>
+    </section>
+
+    <section id="scams">
+      <h2>Spotting scams</h2>
+      <p>Take extra care if someone:</p>
+      <ul>
+        <li><strong>Asks you to pay outside the app</strong>, or to move the chat to another app first</li>
+        <li><strong>Asks for your PIN, password or card details.</strong> NyasaBuy and its sellers never need them.</li>
+        <li><strong>Offers a price that is far too good to be true</strong></li>
+        <li><strong>Rushes you</strong> with "pay now or lose it"</li>
+        <li><strong>Will not answer simple questions</strong> about the item</li>
+      </ul>
+      <Callout title="Before you buy" tone="tip">
+        <ul>
+          <li>Read the description and look at every photo.</li>
+          <li>Check the seller's reviews and how long they have been selling.</li>
+          <li>For pickup, meet somewhere public and check the item before you confirm.</li>
+        </ul>
+      </Callout>
+    </section>
+
+    <section id="report">
+      <h2>Reporting a problem</h2>
+      <p>There are two kinds of report, and both go to our team.</p>
+      <h3>Reporting a chat</h3>
+      <p>
+        Tap the <strong>⋯</strong> menu in any chat and choose{" "}
+        <strong>Report</strong>. Pick the reason, such as:
+      </p>
+      <ul>
+        <li>Asked me to pay outside the app</li>
+        <li>Asked for my personal or bank details</li>
+        <li>Scam or fraud</li>
+        <li>Harassment or abusive messages</li>
+        <li>Fake, stolen or prohibited item</li>
+        <li>Misleading listing</li>
+        <li>Spam, or something else</li>
+      </ul>
+      <p>
+        Add details in your own words, then send it. Our team reads the recent
+        messages and acts. <strong>The other person is not told it was
+        you.</strong> You can report a chat at any time, even before you buy
+        anything.
+      </p>
+      <h3>Reporting a problem with an order</h3>
+      <p>
+        If you have paid and something is wrong, open the order and tap{" "}
+        <strong>Report a problem</strong>. Tell us what happened, and we will
+        look into it.
+      </p>
+    </section>
+
+    <RelatedGuides current="payments-and-safety" />
+  </article>
+</Page>

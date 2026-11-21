@@ -1,0 +1,210 @@
+---
+import Page from "../../layouts/Page.astro";
+import GuideHeader from "../../components/help/GuideHeader.astro";
+import GuideNav from "../../components/help/GuideNav.astro";
+import Steps from "../../components/help/Steps.astro";
+import Callout from "../../components/help/Callout.astro";
+import RelatedGuides from "../../components/help/RelatedGuides.astro";
+
+const sections = [
+  { id: "start", label: "Open your shop" },
+  { id: "listing", label: "Create a listing" },
+  { id: "confirm", label: "When a buyer messages" },
+  { id: "orders", label: "After a sale" },
+  { id: "money", label: "Getting paid" },
+  { id: "boost", label: "Boosting a listing" },
+  { id: "reputation", label: "Your reputation" },
+  { id: "rules", label: "House rules" },
+];
+---
+
+<Page
+  title="Selling on NyasaBuy"
+  description="How to open a shop, list items, confirm sales, deliver and get paid in Malawi kwacha on NyasaBuy."
+>
+  <GuideHeader
+    title="Selling on NyasaBuy"
+    intro="Open your shop, list what you sell, and get paid straight to your mobile money wallet."
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="start">
+      <h2>Open your shop</h2>
+      <p>
+        Signing up is free, and there are no listing fees or monthly
+        subscriptions. Create your account, then open your profile and choose{" "}
+        <strong>Become a seller</strong>. You will be asked for:
+      </p>
+      <ul>
+        <li><strong>Your business name</strong>, the name buyers see on your listings</li>
+        <li><strong>A phone number</strong> buyers and payouts can use</li>
+        <li><strong>Where you are</strong>, so nearby buyers find you</li>
+        <li><strong>What you sell</strong>, from the list of categories</li>
+        <li><strong>How you accept payment</strong></li>
+      </ul>
+      <p>You can start selling as soon as you have applied.</p>
+      <Callout title="Choosing a business name">
+        <ul>
+          <li>Use letters, numbers, spaces and apostrophes, like <em>Mary's Phones</em> or <em>Shop 24</em>.</li>
+          <li>It must be 3 to 60 characters and different from every other seller's name. Capital letters and extra spaces do not make a name different.</li>
+          <li>Names that imitate NyasaBuy, such as ones containing "Nyasa Buy", are not allowed.</li>
+        </ul>
+      </Callout>
+    </section>
+
+    <section id="listing">
+      <h2>Create a listing</h2>
+      <p>
+        From your profile, tap <strong>Create listing</strong> and fill in:
+      </p>
+      <ul>
+        <li><strong>Photos</strong>: up to four. Use clear, real photos of the item itself.</li>
+        <li><strong>A clear title and description</strong>, honest about the condition</li>
+        <li><strong>Category</strong>, which adds a few extra details buyers compare (size, storage and so on)</li>
+        <li><strong>Price in kwacha</strong>, and the condition: brand new or fairly used</li>
+        <li><strong>Where the item is</strong></li>
+        <li><strong>How many you have</strong>. When you sell out, the listing closes by itself.</li>
+        <li><strong>Delivery</strong>: whether you deliver, and your delivery fee</li>
+        <li><strong>Negotiable</strong>: switch this on if you will consider offers</li>
+      </ul>
+      <p>
+        Open <strong>Tips for a good listing</strong> in the app for advice on
+        titles, photos and pricing.
+      </p>
+
+      <h3>Managing your listings</h3>
+      <p>
+        Your <strong>Seller dashboard</strong> lists everything you sell. Tap
+        the <strong>⋯</strong> on a listing to:
+      </p>
+      <ul>
+        <li><strong>Edit</strong> its details, price or stock. From there you can also <strong>withdraw</strong> it: it disappears from search and your public profile but is not deleted, and you can put it back on sale any time.</li>
+        <li><strong>Boost</strong> it (see below)</li>
+        <li><strong>Delete</strong> it for good</li>
+      </ul>
+    </section>
+
+    <section id="confirm">
+      <h2>When a buyer messages you</h2>
+      <p>
+        Buyers start with a chat: <em>"Is it still available?"</em> You will be
+        notified. In the chat, tap <strong>Confirm availability</strong> to let
+        them pay.
+      </p>
+      <Steps
+        items={[
+          {
+            title: "Confirm it is available",
+            body: "If you have more than one, choose how many. The number the buyer asked for is filled in for you.",
+          },
+          {
+            title: "Set a delivery time, if you deliver",
+            body: "Choose how many days delivery will take: at least 2. The days are counted from the day the buyer pays.",
+          },
+          {
+            title: "The buyer pays in the app",
+            body: "They get a Pay now button for 48 hours. You are told when the payment goes through.",
+          },
+        ]}
+      />
+      <Callout title="Keep your promise" tone="tip">
+        <p>
+          Choose a delivery time you can really meet. If the item has not
+          arrived by then, the buyer can ask for more time or report a problem.
+        </p>
+      </Callout>
+      <p>
+        If a buyer makes an offer on a negotiable listing, you can accept or
+        decline it. You are asked to confirm before accepting, so a stray tap
+        never agrees a price.
+      </p>
+    </section>
+
+    <section id="orders">
+      <h2>After a sale</h2>
+      <p>
+        When the buyer pays, you get a notification and a receipt appears in
+        your chat. Then:
+      </p>
+      <ul>
+        <li><strong>Pickup:</strong> arrange a time and place in the chat, hand it over, and mark the order as delivered.</li>
+        <li><strong>Delivery:</strong> send it, then tap <strong>Mark as sent</strong> on the order. You do not need to choose a delivery time again. The one you agreed already counts.</li>
+      </ul>
+      <p>
+        The buyer then confirms they received it, and the order is complete. If
+        they do not respond, it completes on its own after a few days.
+      </p>
+    </section>
+
+    <section id="money">
+      <h2>Getting paid</h2>
+      <p>
+        Your <strong>Seller dashboard</strong> shows your money in three places:
+      </p>
+      <ul>
+        <li><strong>Pending</strong>: paid orders the buyer has not confirmed yet</li>
+        <li><strong>Available</strong>: complete orders you can withdraw now</li>
+        <li><strong>Withdrawn</strong>: money already sent to you</li>
+      </ul>
+      <p>
+        Tap <strong>Withdraw</strong> to send your available money to your
+        Airtel Money or TNM Mpamba wallet. A minimum amount applies, and the
+        app shows it. NyasaBuy keeps a small fee from each sale, and the
+        amounts in your dashboard are always shown after that fee.
+      </p>
+      <Callout title="Changing your payout number?" tone="safety">
+        <p>
+          If you change your payout phone number or mobile money provider,
+          withdrawals pause for about 24 hours. This protects you if someone
+          else ever gets into your account.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="boost">
+      <h2>Boosting a listing</h2>
+      <p>
+        A boost features your listing on the home page for a number of days.
+        The price and the number of days are shown before you pay, and you can
+        have a few listings boosted at the same time. Boost your best sellers
+        when you want more people to see them.
+      </p>
+    </section>
+
+    <section id="reputation">
+      <h2>Your reputation</h2>
+      <p>
+        Buyers can rate you after a completed order, and your profile shows
+        your reviews and how many sales you have completed. Good habits that
+        build trust:
+      </p>
+      <ul>
+        <li>Reply to messages quickly</li>
+        <li>Describe items honestly, scratches included</li>
+        <li>Deliver on the day you promised</li>
+        <li>Keep everything inside the app</li>
+      </ul>
+    </section>
+
+    <section id="rules">
+      <h2>House rules</h2>
+      <Callout title="Never ask buyers to pay outside the app" tone="safety">
+        <p>
+          Do not tell customers to send money by Airtel Money, TNM Mpamba, bank
+          transfer or cash in advance. Only payments made in the app are
+          protected for the buyer, and only they are counted towards your
+          earnings and reputation. Sellers who take buyers away from the app can
+          have their listings removed or their account suspended.
+        </p>
+      </Callout>
+      <ul>
+        <li>Do not sell fake, stolen or prohibited items.</li>
+        <li>Do not post the same item again and again.</li>
+        <li>Be honest about prices, photos and descriptions.</li>
+      </ul>
+    </section>
+
+    <RelatedGuides current="selling" />
+  </article>
+</Page>

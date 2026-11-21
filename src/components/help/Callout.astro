@@ -1,0 +1,67 @@
+---
+// A boxed note. "tip" is a helpful hint, "safety" is something to take care
+// over, "good" is a detail worth knowing.
+interface Props {
+  title: string;
+  tone?: "tip" | "safety" | "good";
+}
+
+const { title, tone = "tip" } = Astro.props;
+---
+
+<aside class={`callout callout-${tone}`}>
+  <p class="callout-title">{title}</p>
+  <div class="callout-body"><slot /></div>
+</aside>
+
+<style>
+  .callout {
+    margin-top: 1.125rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--r-card);
+    border: 1px solid transparent;
+  }
+
+  .callout-tip {
+    background: var(--chip);
+  }
+
+  .callout-good {
+    background: #FAFBFD;
+    border-color: #EEF1F6;
+  }
+
+  /* Safety notes stand out, but stay inside the site's calm palette. */
+  .callout-safety {
+    background: #FFF7E8;
+    border-color: #F0DBAE;
+  }
+
+  .callout-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .callout-body {
+    margin-top: 0.375rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .callout-body :global(p) {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .callout-body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .callout-body :global(ul) {
+    margin-top: 0.5rem;
+  }
+</style>
