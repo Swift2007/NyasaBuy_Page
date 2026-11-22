@@ -1,0 +1,28 @@
+---
+// The top of a legal page: the title, when it took effect, and a plain summary.
+interface Props {
+  title: string;
+  intro: string;
+  updated: string;
+}
+
+const { title, intro, updated } = Astro.props;
+---
+
+<header class="guide-head reveal">
+  <p class="guide-crumbs">
+    <a href="/">NyasaBuy</a><span aria-hidden="true">/</span>{title}
+  </p>
+  <h1>{title}</h1>
+  <p class="guide-intro">{intro}</p>
+  <p class="legal-updated">Last updated: {updated}</p>
+</header>
+
+<style>
+  .legal-updated {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--body);
+  }
+</style>

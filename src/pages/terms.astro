@@ -1,0 +1,693 @@
+---
+import Page from "../layouts/Page.astro";
+import LegalHeader from "../components/legal/LegalHeader.astro";
+import GuideNav from "../components/help/GuideNav.astro";
+import Callout from "../components/help/Callout.astro";
+
+const sections = [
+  { id: "about", label: "About these terms" },
+  { id: "accounts", label: "Your account" },
+  { id: "using", label: "Using NyasaBuy" },
+  { id: "listings", label: "Listings" },
+  { id: "buying", label: "Buying" },
+  { id: "selling", label: "Selling" },
+  { id: "payments", label: "Payments and fees" },
+  { id: "delivery", label: "Delivery and confirmation" },
+  { id: "disputes", label: "Problems and refunds" },
+  { id: "boosts", label: "Featured listings" },
+  { id: "chat", label: "Chat and conduct" },
+  { id: "prohibited", label: "Not allowed" },
+  { id: "content", label: "Your content" },
+  { id: "enforcement", label: "Our right to act" },
+  { id: "liability", label: "Our responsibility" },
+  { id: "ending", label: "Ending your account" },
+  { id: "changes", label: "Changes and law" },
+  { id: "contact", label: "Contact us" },
+];
+---
+
+<Page
+  title="Terms and Conditions"
+  description="The rules for using NyasaBuy: accounts, buying and selling, payments and fees, delivery, disputes and refunds, and what we expect from everyone."
+>
+  <LegalHeader
+    title="Terms and Conditions"
+    intro="The rules for buying and selling on NyasaBuy. Please read them. By creating an account or using the app you agree to them."
+    updated="22 November 2026"
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="summary">
+      <Callout title="The short version" tone="safety">
+        <ul>
+          <li>You must be 18 or older, and give true information.</li>
+          <li>
+            <strong>Only payments made inside the app are protected.</strong> Never
+            pay a seller outside the app.
+          </li>
+          <li>
+            Sellers must describe items honestly, only list what they have, and
+            deliver what they sold.
+          </li>
+          <li>
+            We keep a share of each sale. We hold the buyer's payment until the
+            order is confirmed, then pay the seller.
+          </li>
+          <li>
+            Be respectful. Scams, fake items, harassment and illegal goods get
+            listings removed and accounts suspended.
+          </li>
+        </ul>
+      </Callout>
+      <p>
+        This summary is only a guide. The full terms below are what apply.
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>1. About these terms</h2>
+      <p>
+        NyasaBuy ("<strong>NyasaBuy</strong>", "<strong>we</strong>",
+        "<strong>us</strong>") runs an online marketplace in Malawi, through
+        our mobile and web apps and this website, where people and businesses
+        ("<strong>sellers</strong>") list items and services and other people
+        ("<strong>buyers</strong>") can buy them. These Terms and Conditions
+        ("<strong>Terms</strong>") are the agreement between you and NyasaBuy
+        for everything you do on the platform.
+      </p>
+      <p>
+        Our <a href="/privacy">Privacy Policy</a> explains how we handle your
+        personal information. It forms part of these Terms.
+      </p>
+      <h3>What NyasaBuy is, and is not</h3>
+      <p>
+        NyasaBuy is a platform that connects buyers and sellers and handles
+        payment between them. <strong>We are not the seller of the items
+        listed.</strong> The contract of sale is between the buyer and the
+        seller. We do not own, inspect, store or deliver the items, and we do
+        not guarantee that any listing, seller or buyer is accurate, honest or
+        reliable. What we do provide is the marketplace, the chat, the secure
+        payment flow, the order tracking, and a way to report and resolve
+        problems.
+      </p>
+      <h3>Agreeing to these Terms</h3>
+      <p>
+        You agree to these Terms when you tick the box while creating your
+        account, when you sign in for the first time with Google, or when you
+        otherwise use NyasaBuy. If you do not agree, do not use the platform.
+      </p>
+    </section>
+
+    <section id="accounts">
+      <h2>2. Your account</h2>
+      <h3>Who can use NyasaBuy</h3>
+      <p>
+        You must be at least 18 years old and able to make a binding agreement
+        to open an account. If you register a business, you confirm you are
+        allowed to act for it.
+      </p>
+      <h3>Giving us true information</h3>
+      <ul>
+        <li>
+          The details you give us (name, email, phone number, location,
+          business details, payout details) must be true and kept up to date.
+        </li>
+        <li>You may have only one personal account.</li>
+        <li>
+          Do not pretend to be someone else, or use a name that copies another
+          person, business or NyasaBuy itself. We may refuse or change names,
+          usernames and business names that mislead, imitate the app, or break
+          the rules in section 12. A business name must be unique on the
+          platform.
+        </li>
+      </ul>
+      <h3>Keeping your account safe</h3>
+      <p>
+        You are responsible for your password, your sign-in method (email or
+        Google) and everything done through your account. Do not share your
+        sign-in or one-time codes with anyone. Tell us straight away at the
+        address in section 18 if you think someone else has used your account.
+        We will never ask you for your password or a one-time code.
+      </p>
+      <h3>Verification</h3>
+      <p>
+        To sell, you must complete a seller application and give us the
+        information we ask for. We may check it, ask for more, approve or
+        decline an application, and withdraw approval later. Being approved is
+        not an endorsement of you, your goods or your business.
+      </p>
+    </section>
+
+    <section id="using">
+      <h2>3. Using NyasaBuy</h2>
+      <p>
+        We give you a personal, limited, non-exclusive right to use the app
+        and website for their intended purpose of buying and selling. In return
+        you agree to use them lawfully and in line with these Terms. You must
+        not:
+      </p>
+      <ul>
+        <li>
+          copy, scrape, reverse-engineer or attack the platform, or try to get
+          into accounts or data that are not yours;
+        </li>
+        <li>
+          use bots or automated tools to create accounts, send messages, make
+          offers or place orders;
+        </li>
+        <li>
+          interfere with how payments, ratings, search, featured listings or
+          the online status work;
+        </li>
+        <li>
+          use the platform to send spam, advertise other services, or collect
+          other people's details.
+        </li>
+      </ul>
+      <p>
+        We work to keep NyasaBuy available, but we do not promise it will
+        always run without interruption or errors. We may update, change or
+        pause parts of it, for example for maintenance or security.
+      </p>
+    </section>
+
+    <section id="listings">
+      <h2>4. Listings</h2>
+      <p>
+        A listing is an offer by a seller to sell something. When you create a
+        listing you confirm that:
+      </p>
+      <ul>
+        <li>you own the item or are allowed to sell it, and it is legal to sell;</li>
+        <li>
+          the title, photos, description, price, condition, location and
+          quantity are accurate and not misleading;
+        </li>
+        <li>
+          the photos are of the actual item (or a fair picture of it), and you
+          have the right to use them;
+        </li>
+        <li>
+          you really have the quantity shown, and you will keep it up to date
+          so the same stock is not sold twice;
+        </li>
+        <li>
+          the price is the full price in Malawi Kwacha (MWK), and you will not
+          add hidden charges outside the app.
+        </li>
+      </ul>
+      <p>
+        You can edit a listing or withdraw it (take it off the marketplace) at
+        any time. Withdrawing or editing a listing does not cancel orders that
+        are already paid. A listing may be reserved for a short time while a
+        buyer's payment is in progress. If it is not paid in time, it becomes
+        available again. We may remove, hide or edit any listing that breaks
+        these Terms, is reported, or that we believe may harm other users.
+      </p>
+    </section>
+
+    <section id="buying">
+      <h2>5. Buying</h2>
+      <h3>How a purchase works</h3>
+      <ol>
+        <li>
+          You find a listing and start a purchase. This opens a chat with the
+          seller with a message already written for you, which you can edit
+          before sending. You may agree a quantity, a price and a delivery time
+          with the seller.
+        </li>
+        <li>
+          The seller confirms that the item is available and accepts the terms
+          you agreed. This confirmation is time-limited and shown in the chat.
+        </li>
+        <li>
+          You then pay inside the app. Your payment is held by NyasaBuy and is
+          not paid to the seller yet.
+        </li>
+        <li>
+          The seller delivers. You confirm you received it, or report a
+          problem. When the order is confirmed, we release the seller's money.
+        </li>
+      </ol>
+      <h3>The cart</h3>
+      <p>
+        The cart is a place to hold items you are interested in. It does not
+        reserve stock for you. When you check out, we send your request to
+        each seller. You can continue to payment once the sellers have
+        confirmed. Items that a seller has not confirmed, or whose confirmation
+        has run out, cannot be paid for until they are confirmed again.
+      </p>
+      <h3>Your responsibilities as a buyer</h3>
+      <ul>
+        <li>Read the listing and chat carefully before you pay.</li>
+        <li>
+          Pay only in the app, and only for the amount and quantity you agreed.
+        </li>
+        <li>
+          Give a correct delivery location and be reachable so the seller can
+          deliver.
+        </li>
+        <li>
+          Confirm receipt, or report a problem, within the time shown on your
+          order. Do not confirm an order you have not received.
+        </li>
+        <li>
+          Do not place orders you do not intend to complete, or hold a seller's
+          stock without paying.
+        </li>
+      </ul>
+    </section>
+
+    <section id="selling">
+      <h2>6. Selling</h2>
+      <h3>Your promises as a seller</h3>
+      <ul>
+        <li>
+          You will only confirm a sale if you have the item, and you will
+          deliver it by the delivery time you agreed with the buyer (at least
+          2 days, so the buyer has a realistic time frame).
+        </li>
+        <li>
+          The item will match the listing and what you agreed in the chat. You
+          are responsible for its quality, legality and safety.
+        </li>
+        <li>
+          You will pack and deliver it properly, and mark the order as
+          delivered only when it has been handed over or sent.
+        </li>
+        <li>You will be responsive and polite to buyers.</li>
+        <li>
+          You are responsible for any tax, licence or permit that applies to
+          your sales and your business.
+        </li>
+      </ul>
+      <h3>When you confirm a sale</h3>
+      <p>
+        When you accept a buyer's request or a negotiated price, you are
+        agreeing to sell at that price and quantity. Please check it before you
+        accept. A confirmation stays open for a limited time (shown in the
+        chat). After that, the buyer needs to ask again.
+      </p>
+      <h3>Payout details</h3>
+      <p>
+        To withdraw your earnings you must give us a mobile money number or
+        bank details that belong to you. If you change them, we may hold
+        withdrawals for a short safety period (currently 24 hours) to protect
+        you from account takeover. We may also ask you to confirm your
+        identity before paying out.
+      </p>
+    </section>
+
+    <section id="payments">
+      <h2>7. Payments, fees and payouts</h2>
+      <h3>Paying in the app</h3>
+      <p>
+        Payments are made in Malawi Kwacha through our payment partner
+        (currently PayChangu), using Airtel Money, TNM Mpamba or a bank card.
+        Your payment is processed by the payment partner and the mobile money
+        or card provider, who have their own terms. We do not see or store your
+        full card number or mobile money PIN.
+      </p>
+      <Callout title="Only payments in the app are protected" tone="safety">
+        <p>
+          If a buyer and seller agree to pay by Airtel Money, TNM Mpamba, bank
+          transfer, cash or any other way outside the app, <strong>NyasaBuy
+          cannot protect that payment, cannot help recover it, and will not
+          resolve disputes about it</strong>. Asking someone to pay outside the
+          app breaks these Terms and may lead to suspension.
+        </p>
+      </Callout>
+      <h3>How money is held and released</h3>
+      <p>
+        When a buyer pays, the money is held by us for the order. It is
+        released to the seller once the order is confirmed by the buyer, or
+        confirmed automatically at the end of the confirmation period (see
+        section 9), unless there is a dispute. Money for an order in dispute
+        stays held until the dispute is resolved.
+      </p>
+      <h3>Our fee</h3>
+      <p>
+        We keep a percentage of each completed sale as our fee (the
+        "<strong>commission</strong>"). The current percentage is shown in the
+        app and on your earnings, and we may change it. A change applies only
+        to orders paid after the change. Payment processing costs are covered
+        from our share, not deducted again from the seller's. Sellers see what
+        they will earn from an order before they confirm it.
+      </p>
+      <h3>Withdrawals</h3>
+      <p>
+        Earnings from completed orders can be withdrawn to your payout number
+        or account. There is a minimum withdrawal amount (currently MWK 1,000),
+        shown in the app. Withdrawals are normally sent automatically, but may
+        be delayed by the payment provider, by a safety hold, or by a review
+        by us. We may hold or reverse a payout if we reasonably believe it is
+        linked to fraud, a mistake, a chargeback, or a breach of these Terms.
+      </p>
+      <h3>Mistakes and failed payments</h3>
+      <p>
+        If you are charged but the order does not go through (for example the
+        item was sold to someone else at the same moment, or the listing was
+        no longer available), the payment is refunded to you. Contact us with
+        your payment reference if you do not see an update within a reasonable
+        time.
+      </p>
+    </section>
+
+    <section id="delivery">
+      <h2>8. Delivery and confirmation</h2>
+      <p>
+        Sellers deliver items themselves or through a courier or transport of
+        their choice, as agreed in the chat. NyasaBuy does not deliver and is
+        not responsible for the courier, delays, or loss in transit. Delivery
+        costs, if any, should be agreed and included in the price in the app.
+      </p>
+      <p>
+        When the seller marks an order as delivered, the buyer is asked to
+        confirm that they received it, or report a problem. The same options
+        appear in the chat, so the buyer can act from there too.
+      </p>
+    </section>
+
+    <section id="disputes">
+      <h2>9. Problems, disputes and refunds</h2>
+      <h3>How long you have to confirm</h3>
+      <p>
+        Each order has an expected arrival time based on what the seller
+        agreed. After that, the buyer has a short extra period (currently 3
+        days) to confirm or report a problem. If the buyer does nothing in that
+        time, the order is completed automatically and the seller is paid. If
+        the buyer says the item has not arrived yet, they can ask for more
+        time a limited number of times. After that, the matter is treated as
+        a dispute. This is so that a seller's money is not held indefinitely.
+        We send reminders before the time runs out.
+      </p>
+      <h3>Reporting a problem</h3>
+      <p>
+        A buyer can report a problem with a paid order, for example: the item
+        did not arrive, is not as described, is damaged or is not what was
+        agreed. Please explain clearly and provide photos or evidence where you
+        can. A report opens a dispute and the money for that order stays held.
+      </p>
+      <h3>How we decide</h3>
+      <p>
+        We look at the listing, the chat, the order history, photos and
+        evidence both sides provide, and our records. We may ask both sides
+        for more information. Our decision may be to release the money to the
+        seller, refund the buyer in full or in part, or take other action. We
+        aim to be fair, but our decision on how to handle the held money is
+        final for the purpose of the platform. This does not take away your
+        legal rights.
+      </p>
+      <h3>Refunds</h3>
+      <p>
+        Refunds go back to the buyer through the payment method or wallet they
+        used where possible, after we have recorded them. They can take some
+        time to arrive because of the mobile money or bank provider. Our fee
+        is not charged on refunded orders. Refunds are not available for
+        payments made outside the app.
+      </p>
+      <h3>Reporting people</h3>
+      <p>
+        From a chat you can report the other person, for example for trying to
+        take the payment outside the app, harassment, scams or other
+        behaviour. When you report a chat, our team can read the last few
+        messages from that conversation and the details you give, to decide
+        what to do.
+      </p>
+    </section>
+
+    <section id="boosts">
+      <h2>10. Featured listings (boosts)</h2>
+      <p>
+        A seller can pay a fee to have a listing shown in the featured section
+        of the home page for a set number of days. The current price and
+        number of days are shown before you pay. A boost is a promotion, not a
+        guarantee of sales, views or position. There is a limit on how many
+        listings one seller can boost at the same time.
+      </p>
+      <ul>
+        <li>
+          Featured listings are shown in turn, so one is not always at the
+          front.
+        </li>
+        <li>
+          If you remove a boost early, or withdraw the listing, or it is
+          removed for breaking these Terms, the fee is not refunded.
+        </li>
+        <li>
+          If a boost you paid for cannot be started because of a fault on our
+          side, we will refund it.
+        </li>
+        <li>
+          We may also feature listings ourselves, free of charge, for
+          example to highlight a good seller or a category.
+        </li>
+      </ul>
+    </section>
+
+    <section id="chat">
+      <h2>11. Chat, reviews and conduct</h2>
+      <p>
+        The chat is for talking about items and orders. Be honest, polite and
+        reasonable. Do not use threatening, abusive, hateful, sexual or
+        discriminatory language. Do not send spam or unrelated adverts. You can
+        edit a message you sent, but we keep the history so that we can
+        understand a dispute.
+      </p>
+      <p>
+        Chats are not end-to-end private from us. We keep them as a record of
+        what was agreed and may review them where there is a report, a
+        dispute, a safety concern, or a legal duty. We do not read chats for
+        any other reason without good cause.
+      </p>
+      <p>
+        Reviews and ratings must be honest and based on a real purchase. Do not
+        offer or accept payment or favours for reviews, and do not post fake
+        reviews about yourself or a competitor.
+      </p>
+      <p>
+        <strong>Online status.</strong> The app can show other users when you
+        are online or when you were last online. You can turn this off in your
+        privacy settings. If you do, you also will not see others' status.
+      </p>
+    </section>
+
+    <section id="prohibited">
+      <h2>12. What is not allowed</h2>
+      <h3>Not allowed to be sold</h3>
+      <ul>
+        <li>
+          Anything illegal in Malawi, stolen goods, counterfeit or pirated
+          goods, and items that infringe someone else's rights.
+        </li>
+        <li>
+          Weapons and ammunition, illegal drugs and drug paraphernalia, and
+          controlled medicines or medical products you are not licensed to sell.
+        </li>
+        <li>
+          Human or animal body parts, protected wildlife and wildlife products,
+          and anything involving the exploitation of people or animals.
+        </li>
+        <li>
+          Fake documents, stolen or hacked accounts and data, and services that
+          help others cheat or commit fraud.
+        </li>
+        <li>Adult sexual content, and anything that could harm children.</li>
+        <li>
+          Money, gift cards, mobile airtime and similar items that can be used
+          to move money around outside the app, unless we have said they are
+          allowed.
+        </li>
+      </ul>
+      <h3>Not allowed in behaviour</h3>
+      <ul>
+        <li>
+          Asking or pushing anyone to pay outside the app, including by Airtel
+          Money, TNM Mpamba, bank transfer or cash, or sharing payment details
+          in the chat for that purpose.
+        </li>
+        <li>
+          Taking a payment and not delivering, delivering something different
+          from the listing, or any other scam.
+        </li>
+        <li>
+          Misleading titles, photos, prices or descriptions, "bait" prices, or
+          holding listings you cannot supply.
+        </li>
+        <li>
+          Using a name, username, business name or logo that copies NyasaBuy,
+          its staff, or another person or business, or that suggests you work
+          for us.
+        </li>
+        <li>
+          Creating more than one account to avoid a suspension, manipulate
+          ratings, or hide from a dispute.
+        </li>
+        <li>Harassing, threatening or discriminating against anyone.</li>
+        <li>
+          Sharing someone else's private information without their permission.
+        </li>
+      </ul>
+    </section>
+
+    <section id="content">
+      <h2>13. Your content</h2>
+      <p>
+        You keep ownership of what you post: listings, photos, descriptions,
+        reviews, messages and profile details ("<strong>your content</strong>").
+        By posting it you give NyasaBuy a free, worldwide, non-exclusive
+        licence to host, store, display, copy, resize and share it as needed to
+        run, secure and promote the platform. For example, to show your listing
+        in search and the featured section, in a link you or others share, or
+        in a notification. This licence ends when you delete the content or
+        your account, except for copies we must keep (see the Privacy Policy
+        and section 16), and content others have already shared or saved.
+      </p>
+      <p>
+        You promise that your content is yours to post, does not break anyone
+        else's rights or the law, and is not harmful. The NyasaBuy name, logo,
+        app and website belong to us. These Terms do not give you any right to
+        use them except to use the platform.
+      </p>
+    </section>
+
+    <section id="enforcement">
+      <h2>14. Our right to act</h2>
+      <p>
+        To keep the platform safe and fair, we may, at our discretion and
+        sometimes without notice:
+      </p>
+      <ul>
+        <li>remove, hide or edit listings, messages and reviews;</li>
+        <li>limit what an account can do, or ask for more verification;</li>
+        <li>hold payments or payouts while we investigate;</li>
+        <li>suspend or close accounts, temporarily or permanently;</li>
+        <li>
+          refuse or cancel an order, and refund the buyer where money has been
+          paid;
+        </li>
+        <li>
+          share information with the police, regulators, or the payment
+          providers where the law allows or requires it, or to protect people.
+        </li>
+      </ul>
+      <p>
+        If we act on your account, we will normally tell you why, unless the
+        law or safety stops us. If you think we made a mistake, contact us
+        and we will review it.
+      </p>
+    </section>
+
+    <section id="liability">
+      <h2>15. Our responsibility</h2>
+      <p>
+        We do our best to run a safe and reliable marketplace, but there are
+        limits to what we can promise.
+      </p>
+      <ul>
+        <li>
+          <strong>Between users.</strong> We are not a party to the sale between
+          buyer and seller. We do not guarantee the quality, safety, legality or
+          delivery of items, or the conduct of users. Any dealing between you
+          and another user is at your own risk, within the protection the
+          in-app payment and dispute process gives you.
+        </li>
+        <li>
+          <strong>As is.</strong> The platform is provided "as is" and "as
+          available". We do not promise it will always be available, free of
+          errors, or free of harmful code.
+        </li>
+        <li>
+          <strong>Limit.</strong> As far as the law allows, we are not liable
+          for losses that are indirect, or loss of profit, business, data or
+          goodwill, or for losses caused by users, by networks and mobile money
+          or bank providers, by events outside our control, or by payments made
+          outside the app. Where we are responsible to you, our total liability
+          for any claim is limited to the amount you paid us in fees for the
+          order the claim relates to, or MWK 100,000 if higher.
+        </li>
+        <li>
+          <strong>What does not change.</strong> Nothing in these Terms limits
+          liability that cannot be limited by law, or any rights you have as a
+          consumer under Malawi law.
+        </li>
+      </ul>
+      <p>
+        You agree to compensate us for losses and costs we suffer because of
+        your breach of these Terms, your content, or your unlawful use of the
+        platform.
+      </p>
+    </section>
+
+    <section id="ending">
+      <h2>16. Ending your account</h2>
+      <p>
+        You can stop using NyasaBuy at any time, and you can delete your
+        account from the app's settings. You cannot delete your account while
+        you have a paid order still in progress, so that the other person is
+        not left without their item or their money. Finish or resolve those
+        first. Unpaid orders are cancelled.
+      </p>
+      <p>
+        When an account is deleted, you can no longer sign in, and your
+        listings are taken off the marketplace. Your name and contact details
+        are removed from your profile and replaced with "Deleted user".
+        Records that other people, the law, or our accounting rely on, such as
+        orders, payments, reviews, disputes and the chats connected to them,
+        are kept. The Privacy Policy explains how long.
+      </p>
+      <p>
+        We may end or suspend your access under section 14. Sections that
+        should reasonably survive (for example about payments already made,
+        disputes, your content licence for records we must keep, liability and
+        the law that applies) continue after your account ends.
+      </p>
+    </section>
+
+    <section id="changes">
+      <h2>17. Changes, notices and the law</h2>
+      <h3>Changes to these Terms</h3>
+      <p>
+        We may change these Terms, for example when we add features or when
+        the law changes. We will post the new Terms on this page with a new
+        date and, for important changes, tell you in the app or by email. If
+        you keep using NyasaBuy after the change takes effect, you accept the
+        new Terms. If you do not agree, stop using the platform and delete your
+        account.
+      </p>
+      <h3>Notices</h3>
+      <p>
+        We may contact you through the app, by notification, or at the email
+        address on your account. Keep your contact details current.
+      </p>
+      <h3>Governing law and disputes with us</h3>
+      <p>
+        These Terms are governed by the laws of the Republic of Malawi. If we
+        cannot sort out a disagreement together first, the courts of Malawi
+        have the right to decide it. Please contact us first, because most
+        problems can be resolved quickly.
+      </p>
+      <h3>General</h3>
+      <p>
+        If part of these Terms is found to be unenforceable, the rest still
+        applies. If we do not enforce a right straight away, we have not given
+        it up. You may not transfer your rights under these Terms to anyone
+        else. We may transfer ours as part of a sale or reorganisation of the
+        business. These Terms and the Privacy Policy are the whole agreement
+        between you and us about the platform.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>18. Contact us</h2>
+      <p>
+        Questions about these Terms, a problem with your account, or a report
+        about someone: email us at{" "}
+        <a href="mailto:support@nyasabuy.com">support@nyasabuy.com</a>. You
+        can also find answers in our <a href="/help">Help centre</a>. When you
+        write about an order, please include your payment reference.
+      </p>
+    </section>
+  </article>
+</Page>

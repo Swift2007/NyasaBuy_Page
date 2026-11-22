@@ -1,0 +1,564 @@
+---
+import Page from "../layouts/Page.astro";
+import LegalHeader from "../components/legal/LegalHeader.astro";
+import GuideNav from "../components/help/GuideNav.astro";
+import Callout from "../components/help/Callout.astro";
+
+const sections = [
+  { id: "who", label: "Who we are" },
+  { id: "collect", label: "What we collect" },
+  { id: "use", label: "How we use it" },
+  { id: "share", label: "Who sees it" },
+  { id: "providers", label: "Service providers" },
+  { id: "chats", label: "Chats and reports" },
+  { id: "status", label: "Online status" },
+  { id: "notifications", label: "Notifications" },
+  { id: "storage", label: "Keeping and deleting" },
+  { id: "security", label: "Security" },
+  { id: "rights", label: "Your choices and rights" },
+  { id: "children", label: "Children" },
+  { id: "transfers", label: "Where data is kept" },
+  { id: "cookies", label: "Cookies and the web app" },
+  { id: "changes", label: "Changes" },
+  { id: "contact", label: "Contact us" },
+];
+---
+
+<Page
+  title="Privacy Policy"
+  description="What personal information NyasaBuy collects, why, who can see it, how long we keep it, and the choices and rights you have."
+>
+  <LegalHeader
+    title="Privacy Policy"
+    intro="What we collect, why we collect it, who sees it, and the control you have. We have tried to explain it in plain words."
+    updated="22 November 2026"
+  />
+  <GuideNav items={sections} />
+
+  <article class="guide">
+    <section id="summary">
+      <Callout title="The short version" tone="good">
+        <ul>
+          <li>
+            We collect what we need to run a marketplace: your account, your
+            listings and orders, your chats, and payment references.
+          </li>
+          <li>
+            <strong>We do not sell your personal information.</strong>
+          </li>
+          <li>
+            We do not see or keep your full card number or mobile money PIN.
+            Our payment partner handles those.
+          </li>
+          <li>
+            Other users see only what is needed to trade with you, such as your
+            name or shop name, photo, location and ratings. They do not see
+            your email or phone number unless you share them.
+          </li>
+          <li>
+            You can change your details, switch off your online status, and
+            delete your account from the app.
+          </li>
+        </ul>
+      </Callout>
+    </section>
+
+    <section id="who">
+      <h2>1. Who we are</h2>
+      <p>
+        NyasaBuy ("<strong>we</strong>", "<strong>us</strong>") runs a
+        marketplace in Malawi through our apps and website. We decide why and
+        how your personal information is used, which makes us the
+        "<strong>controller</strong>" of it. This policy applies to everyone
+        who uses NyasaBuy as a buyer, a seller, or a visitor, and should be
+        read with our <a href="/terms">Terms and Conditions</a>.
+      </p>
+      <p>
+        We handle personal information in line with the laws of Malawi that
+        protect it, including its data protection and electronic transactions
+        laws.
+      </p>
+    </section>
+
+    <section id="collect">
+      <h2>2. What we collect</h2>
+      <h3>Information you give us</h3>
+      <ul>
+        <li>
+          <strong>Account details:</strong> your email address, your password
+          (kept in a protected form, never readable by us), your name, a
+          username, a profile photo, and your phone number and location (town
+          or area) where you give them.
+        </li>
+        <li>
+          <strong>Sign-in with Google:</strong> if you choose Google, we get
+          your name, email address and profile picture from Google. We never
+          see your Google password.
+        </li>
+        <li>
+          <strong>Seller details:</strong> when you apply to sell, your business
+          or shop name, what you sell, contact details, and anything else the
+          application asks for to check who you are.
+        </li>
+        <li>
+          <strong>Payout details:</strong> the mobile money number or bank
+          account you want your earnings sent to, and its operator or bank.
+        </li>
+        <li>
+          <strong>Listings:</strong> titles, descriptions, photos, prices,
+          categories, condition, quantity and location.
+        </li>
+        <li>
+          <strong>Messages:</strong> the chats you have with buyers and
+          sellers, including offers, quantities, agreed prices, delivery times,
+          receipts and the messages you edit (we keep the earlier versions).
+        </li>
+        <li>
+          <strong>Reviews, reports and disputes:</strong> ratings and reviews
+          you write, reports you make about people, listings or orders, and
+          the details and evidence you add.
+        </li>
+        <li>
+          <strong>Things you save:</strong> your cart, wishlist and saved
+          items.
+        </li>
+        <li>
+          <strong>When you contact us:</strong> what you write to us and any
+          files you send.
+        </li>
+      </ul>
+      <h3>Information created when you use NyasaBuy</h3>
+      <ul>
+        <li>
+          <strong>Orders and payments:</strong> what was bought, the amount, the
+          status, delivery times, payment references, refunds, withdrawals and
+          boosts. We do not keep full card numbers or PINs.
+        </li>
+        <li>
+          <strong>Sign-in records:</strong> when you sign in, the sign-in method,
+          the approximate device and browser, and the network (IP) address. We
+          use this to protect accounts and spot suspicious sign-ins.
+        </li>
+        <li>
+          <strong>Activity:</strong> which days you were active, and your
+          online status and "last seen" time (see section 7). We use this to
+          show status and to understand how many people use the platform.
+        </li>
+        <li>
+          <strong>Device and notification details:</strong> a token that lets us
+          send notifications to your phone or browser, if you allow them.
+        </li>
+        <li>
+          <strong>Technical information:</strong> app version, device type,
+          error reports, and the time of requests, to keep the platform working
+          and secure.
+        </li>
+        <li>
+          <strong>Notifications:</strong> a record of the alerts we sent you
+          about your orders, messages and listings.
+        </li>
+      </ul>
+      <h3>Information we do not ask for</h3>
+      <p>
+        We do not ask for your exact GPS position, your contacts list, or your
+        other apps' data. Your location on NyasaBuy is the town or area you
+        type in, and the location on your listings.
+      </p>
+    </section>
+
+    <section id="use">
+      <h2>3. How we use it, and why</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>What we do</th><th>Why we are allowed to</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Create and run your account, show your profile and listings,
+                let you chat, order and pay, and send you order updates.
+              </td>
+              <td>It is needed to give you the service you asked for.</td>
+            </tr>
+            <tr>
+              <td>
+                Take payments, hold them, pay sellers, send refunds, and keep
+                payment records.
+              </td>
+              <td>It is needed for the service, and we must keep financial records.</td>
+            </tr>
+            <tr>
+              <td>
+                Check sellers, prevent scams and fraud, investigate reports and
+                disputes, enforce our Terms, and keep accounts secure.
+              </td>
+              <td>
+                It is our legitimate interest in keeping people safe, and
+                sometimes a legal duty.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Send notifications and emails about your account, orders,
+                messages and safety (including one-time codes).
+              </td>
+              <td>It is part of the service.</td>
+            </tr>
+            <tr>
+              <td>
+                Improve the app, fix problems, and understand how many people
+                use it, using summaries of activity.
+              </td>
+              <td>It is our legitimate interest in running a good service.</td>
+            </tr>
+            <tr>
+              <td>
+                Show featured listings and recommend relevant items by
+                category and location.
+              </td>
+              <td>It is part of the service you use.</td>
+            </tr>
+            <tr>
+              <td>
+                Comply with the law, answer legal requests, and protect our
+                rights.
+              </td>
+              <td>It is a legal duty, or our legitimate interest.</td>
+            </tr>
+            <tr>
+              <td>
+                Things that need your agreement, such as turning on
+                notifications on your device.
+              </td>
+              <td>Your consent. You can withdraw it at any time.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        We do not use your information for advertising by other companies, and
+        we do not use automated decisions that have a legal effect on you
+        without a person being able to review them.
+      </p>
+    </section>
+
+    <section id="share">
+      <h2>4. Who can see your information</h2>
+      <h3>Other users</h3>
+      <ul>
+        <li>
+          <strong>Everyone</strong> can see your public profile: your shop or
+          display name, username, profile photo, general location, ratings and
+          reviews, and your listings.
+        </li>
+        <li>
+          <strong>The person you trade with</strong> can see your chat with
+          them, and what they need to complete the order, such as your name
+          and the delivery location you give. Your email address and phone
+          number are not shown to other users unless you put them in a chat or
+          listing yourself. Please do not share personal details you do not
+          want the other person to have.
+        </li>
+        <li>
+          Do not put sensitive information, such as ID numbers, passwords or
+          one-time codes, in a chat or listing.
+        </li>
+      </ul>
+      <h3>Our team</h3>
+      <p>
+        Only the staff and administrators who need it to run the platform, help
+        you, review reports, or stop fraud can see account and order
+        information. Administrator access is protected and attempts to enter
+        the admin area by people who are not administrators are recorded.
+      </p>
+      <h3>Others, only when needed</h3>
+      <ul>
+        <li>
+          <strong>Service providers</strong> who help us run NyasaBuy (section
+          5), under rules that limit what they can do.
+        </li>
+        <li>
+          <strong>Payment partners and mobile money or card providers</strong>,
+          to take and send payments.
+        </li>
+        <li>
+          <strong>Authorities and regulators</strong>, courts or the police,
+          where the law requires it or where it is needed to prevent or
+          investigate a crime or serious harm.
+        </li>
+        <li>
+          <strong>A buyer of the business</strong> or a successor, if NyasaBuy
+          is sold or reorganised, who must keep protecting your information.
+        </li>
+      </ul>
+      <p>
+        <strong>We never sell your personal information</strong>, and we do not
+        give it to advertisers.
+      </p>
+    </section>
+
+    <section id="providers">
+      <h2>5. Service providers we use</h2>
+      <p>
+        We use trusted companies to run parts of the service. They process
+        information for us, or for you, and may only use it to provide that
+        service. They include:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Provider</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PayChangu</td>
+              <td>
+                Takes payments and sends withdrawals through Airtel Money, TNM
+                Mpamba and cards. It receives the amount, your payment details
+                that you enter on its page, and the information needed to
+                complete the payment.
+              </td>
+            </tr>
+            <tr>
+              <td>Supabase</td>
+              <td>
+                Manages sign-in (email and password, Google sign-in) and stores
+                account and app data securely.
+              </td>
+            </tr>
+            <tr>
+              <td>Google (Sign-In and Firebase Cloud Messaging)</td>
+              <td>
+                Lets you sign in with Google, and delivers notifications to
+                your phone or browser.
+              </td>
+            </tr>
+            <tr>
+              <td>Resend</td>
+              <td>Sends emails such as your one-time confirmation code.</td>
+            </tr>
+            <tr>
+              <td>Render and our hosting providers</td>
+              <td>Run the servers, the web app and the admin tools.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        These providers have their own privacy policies for what they do under
+        their own responsibility, such as the mobile money or card provider
+        that processes your payment. We may change providers; we will keep this
+        list up to date.
+      </p>
+    </section>
+
+    <section id="chats">
+      <h2>6. Chats, reports and disputes</h2>
+      <p>
+        Your chats are stored on our servers. We do not read them as a matter
+        of routine. Our team may read a chat in these cases:
+      </p>
+      <ul>
+        <li>
+          <strong>A report.</strong> When someone reports a chat or a person,
+          the report, the reason and details, and the most recent messages of
+          that conversation are shown to our administrators so they can decide
+          what to do. This can include messages you wrote.
+        </li>
+        <li>
+          <strong>An order dispute</strong>, where the chat shows what was
+          agreed.
+        </li>
+        <li>
+          <strong>Safety or a legal duty</strong>, such as a suspected scam or
+          a lawful request from the authorities.
+        </li>
+      </ul>
+      <p>
+        When you edit a message, we keep the earlier version so that disputes
+        can be settled fairly.
+      </p>
+    </section>
+
+    <section id="status">
+      <h2>7. Online status and last seen</h2>
+      <p>
+        When you use the app, other users may see a green dot if you are
+        online, or when you were last online. This helps people know when to
+        expect a reply. <strong>You can switch this off</strong> in your
+        privacy settings. If you do, other people no longer see your status or
+        last seen, and you will not see theirs. We still keep the days you were
+        active for security and for overall usage numbers.
+      </p>
+    </section>
+
+    <section id="notifications">
+      <h2>8. Notifications</h2>
+      <p>
+        We send notifications about your orders, messages, offers, listings,
+        boosts and account. In the app these are shown in your notifications
+        list. If you allow it, we also send push notifications to your phone or
+        browser. To do that we store a notification token for each of your
+        devices and use Google's Firebase Cloud Messaging to deliver it. You can
+        turn push notifications off in your device or browser settings at any
+        time, and we will stop using the token. Emails about security, such as
+        one-time codes, are always sent.
+      </p>
+    </section>
+
+    <section id="storage">
+      <h2>9. How long we keep information</h2>
+      <p>
+        We keep information only as long as we need it for the reasons in this
+        policy.
+      </p>
+      <ul>
+        <li>
+          <strong>Your account and profile:</strong> for as long as your account
+          is open.
+        </li>
+        <li>
+          <strong>Orders, payments, refunds, withdrawals, boosts, reviews,
+          disputes and the chats connected to them:</strong> kept after you leave,
+          because the other person, the payment providers, our accounting and
+          the law depend on them. We keep them for the period the law and our
+          accounting needs (normally several years) and then delete or
+          anonymise them.
+        </li>
+        <li>
+          <strong>Sign-in and security records:</strong> for a limited time to
+          protect accounts and investigate abuse.
+        </li>
+        <li>
+          <strong>Notification tokens:</strong> until you stop using the device,
+          sign out, or delete your account.
+        </li>
+        <li>
+          <strong>Reports and evidence:</strong> as long as needed to handle the
+          case and any appeal, and to spot repeat offenders.
+        </li>
+      </ul>
+      <h3>When you delete your account</h3>
+      <p>
+        You can delete your account in the app. We remove your login so you can
+        no longer sign in, take your listings off the marketplace, cancel unpaid
+        purchases, remove your saved items and notification tokens, and
+        anonymise your profile. Your name becomes "Deleted user" and your
+        contact details, username, photo and business details are cleared.
+        Records we must keep for other people, payment providers and the law
+        stay, without your identifying profile details. You cannot delete the
+        account while a paid order is still in progress.
+      </p>
+    </section>
+
+    <section id="security">
+      <h2>10. Keeping your information safe</h2>
+      <p>
+        We use sensible technical and organisational measures: encrypted
+        connections, protected sign-in, access to data limited to those who
+        need it, protected administrator access, limits on repeated sign-in and
+        code attempts, and checks on payout changes. No system is perfectly
+        secure, and we cannot promise it. You help by choosing a strong
+        password, not sharing codes, and keeping your device safe. If there is
+        a security incident that affects your personal information, we will
+        tell you and the authorities where the law requires.
+      </p>
+      <Callout title="We will never ask for your password or codes" tone="safety">
+        <p>
+          NyasaBuy staff will never ask for your password, a one-time code or
+          your mobile money PIN, by chat, phone, WhatsApp or email. If someone
+          does, they are not us. Report them.
+        </p>
+      </Callout>
+    </section>
+
+    <section id="rights">
+      <h2>11. Your choices and rights</h2>
+      <p>You can control a lot yourself in the app:</p>
+      <ul>
+        <li>edit your name, photo, phone number, location and shop details;</li>
+        <li>choose whether your online status and last seen are shown;</li>
+        <li>turn notifications on or off on your device or browser;</li>
+        <li>remove listings and withdraw them from the marketplace;</li>
+        <li>delete your account.</li>
+      </ul>
+      <p>
+        Under Malawi's data protection law you also have rights over your
+        personal information. You can ask us to:
+      </p>
+      <ul>
+        <li>tell you what personal information we hold about you;</li>
+        <li>correct information that is wrong or incomplete;</li>
+        <li>delete your information, where we have no good reason to keep it;</li>
+        <li>
+          limit or stop us using it in some ways, or object to how we use it;
+        </li>
+        <li>give you a copy of the information you gave us;</li>
+        <li>
+          take back a consent you gave, without affecting what we did before.
+        </li>
+      </ul>
+      <p>
+        To use these rights, email us at the address in section 16. We may
+        need to confirm it is really you, and we will reply within a reasonable
+        time. Some information we must keep (see section 9), and we will tell
+        you if that stops us from doing what you ask. If you are unhappy with
+        how we handled your request or your information, you have the right to
+        complain to the data protection authority in Malawi. We would
+        appreciate the chance to put it right first.
+      </p>
+    </section>
+
+    <section id="children">
+      <h2>12. Children</h2>
+      <p>
+        NyasaBuy is for people aged 18 and over. We do not knowingly collect
+        information about children. If you think a child has made an account,
+        tell us and we will close it and delete what we can.
+      </p>
+    </section>
+
+    <section id="transfers">
+      <h2>13. Where your information is kept</h2>
+      <p>
+        Our service providers (section 5) may store and process information on
+        servers outside Malawi. When your information goes abroad, we make sure
+        the provider protects it to a standard that is in line with this policy
+        and the law, for example through the contracts we have with them.
+      </p>
+    </section>
+
+    <section id="cookies">
+      <h2>14. Cookies and the web app</h2>
+      <p>
+        When you use the NyasaBuy web app, your browser stores small pieces of
+        data that are needed for it to work, such as to keep you signed in, to
+        remember your settings (like light or dark mode), and to receive push
+        notifications. We do not use advertising or tracking cookies. This
+        website (the information pages) does not use cookies to follow you
+        around.
+      </p>
+    </section>
+
+    <section id="changes">
+      <h2>15. Changes to this policy</h2>
+      <p>
+        We may update this policy when the way we work changes or the law
+        changes. We will post the new version here with a new date and, for
+        important changes, tell you in the app or by email. Please check back
+        from time to time.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>16. Contact us</h2>
+      <p>
+        For anything about your privacy or your personal information, email{" "}
+        <a href="mailto:privacy@nyasabuy.com">privacy@nyasabuy.com</a>. For
+        general help, use{" "}<a href="mailto:support@nyasabuy.com">support@nyasabuy.com</a>{" "}
+        or the <a href="/help">Help centre</a>.
+      </p>
+    </section>
+  </article>
+</Page>

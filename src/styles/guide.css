@@ -102,3 +102,29 @@
   margin-top: 1rem;
   overflow-x: auto;
 }
+
+.guide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.guide th,
+.guide td {
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #EEF1F6;
+}
+
+.guide th {
+  background: var(--chip);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.guide td:first-child {
+  min-width: 9rem;
+  font-weight: 600;
+}
